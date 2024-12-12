@@ -1,0 +1,38 @@
+{# {% block title %}Bienvenue sur focus pixel{% endblock %} #}
+
+<header>
+
+{# le logo du site et lien de l'image#}
+<div class="logo">
+    <img src="{{asset('assets/img/logo2.png')}}" alt="le nom du site et logo représentant un réticule">
+</div>
+
+
+{#Les liens de navigation du site 
+1ere partie permet la navigation#}
+
+<nav>
+
+    <div class="item">
+        <ul>
+            <li><a href="{{ path('app_home')}}"><i class="fa-solid fa-house fa-xl"></i></a></li>
+            <li><a href="{{ path('app_camera')}}">Boitiers</a></li>
+            <li><a href="{{ path('app_optical')}}">Optiques</a></li>
+            <li><a href="{{ path('app_flash')}}">Flashs</a></li>
+            <li><a href="{{ path('app_accessory')}}">Accessoires</a></li>
+            <li><a href="{{ path('app_sell_equipment')}}">Vendez votre matériel</a></li>
+        </ul>
+    </div>
+
+{# partie 2 concerne les icones cliquables d'inscription/connexion#}
+    <div class="account">
+        <ul>
+            <li><a href="{{ path('app_register')}}">Inscription</a></li>
+            <li><a href="{{ path('app_login')}}">Connection</a></li>
+            <li><a href="{{ path('app_basket')}}"><i class="fa-brands fa-opencart fa-xl"></i></a></li>
+        </ul>
+    </div>
+    
+</nav>
+
+</header>

@@ -1,49 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Bienvenue sur focus pixel{% endblock %}
 
 {% block body %}
 
-<header>
-
-{# le logo du site et lien de l'image#}
-<div class="logo">
-    <img src="{{asset('assets/img/logo.png')}}" alt="le nom du site et logo représentant un réticule">
-</div>
-
-
-{#Les liens de navigation du site #}
-<nav class="item">
-    <ul>
-        <li><a href="{{ path('app_camera')}}">Boitiers</a></li>
-        <li><a href="{{ path('app_optical')}}">Optiques</a></li>
-        <li><a href="{{ path('app_flash')}}">Flashs</a></li>
-        <li><a href="{{ path('app_accessory')}}">Accessoires</a></li>
-        <li><a href="{{ path('app_sell_equipment')}}">Vendez votre matériel</a></li>
-    </ul>
-</nav>
-
-
-{# >> ici sera partie concernant les icones cliquables d'inscription/connexion sous forme de lien menant aux pages concernées #}
-<nav class="account">
-<li><a href="{{ path('app_register')}}">Inscription</a></li>
-<li><a href="{{ path('app_login')}}">Connection</a></li>
-<li><a href="{{ path('app_basket')}}">Panier</a></li>
-</nav>
-
-</header>
-
-{# Mon image d'entête #}
-<div class="fond"><img src="{{asset('assets/img/optic.png')}}" alt=""></div>
-
-
 <main class="contenair">
 
+{# Mon image d'entête #}
+<div class="fond"></div>
 
+<p>produits récement ajoutés</p>
+<br>
 
 
 
 </main>
+
+
+
 
 <footer>
 </footer>
