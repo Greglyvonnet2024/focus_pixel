@@ -35,6 +35,9 @@ class ProductSell
     #[ORM\Column]
     private ?float $stock = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $category = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,6 +123,18 @@ class ProductSell
     public function setStock(float $stock): static
     {
         $this->stock = $stock;
+
+        return $this;
+    }
+
+    public function getCategory(): ?string
+    {
+        return $this->category;
+    }
+
+    public function setCategory(string $category): static
+    {
+        $this->category = $category;
 
         return $this;
     }

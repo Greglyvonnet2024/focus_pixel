@@ -114,7 +114,7 @@ flex-flow
   border: 1px;
   vertical-align: baseline;
   box-sizing: border-box;
-  
+  border: 1px solid;
 }
 
 /* iframe,
@@ -226,6 +226,18 @@ header{
 /*************** END ASIDE RIGHT ***************/
 
 /*************** FOOTER ***************/
+
+footer{
+
+    .map{
+      
+      height:100px;
+      width:100px;
+    }
+
+}
+
+
 
 /*************** END FOOTER ***************/
 
