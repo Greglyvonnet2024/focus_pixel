@@ -142,7 +142,7 @@ header{
   
   display: flex;
   /* width: 100%; */
- 
+
 
     .logo img{
     padding: 0;
@@ -150,10 +150,11 @@ header{
     }
 
     nav{
-      padding:auto;
+      width: 100%;
       display: flex;
       
-      
+
+
         .item ul{
         display: flex;
         list-style-type: none;
@@ -163,21 +164,23 @@ header{
         .item a{
         text-decoration: none;
         color: black;
-        justify-content: space-between;
         justify-content: center;
         }
+
+.account li{
+        justify-content: end;
+      }
 
 
         .account ul{
         display:flex;
         list-style-type: none;
-          justify-content: space-between
         }
 
         .account a{
         text-decoration: none;
         color: black;
-        justify-content: space-between;
+        
         }
     }
     
@@ -193,13 +196,26 @@ header{
   } 
   
   
-/*************** END HEADER ***************/
+/*************** END HEADER + NAV ***************/
 
-/*************** NAV ***************/
+/*************** OPTIQUE ***************/
+/* {# <style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style> #} */
+
+.opticalPage{
+
+background-image: url("../img/optiques.jpg");
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+width: 100%;
+height: 100%;
+}
 
 
-
-/*************** END NAV ***************
+/*************** END OPTIQUE ***************
 
 /*************** MAIN ***************/
 
