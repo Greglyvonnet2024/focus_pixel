@@ -16,11 +16,11 @@
     <div class="item">
         <ul>
             <li><a href="{{ path('app_home')}}"><i class="fa-solid fa-house fa-xl"></i></a></li>
-            <li><a href="{{ path('app_camera')}}">Boitiers</a></li>
-            <li><a href="{{ path('app_optical')}}">Optiques</a></li>
-            <li><a href="{{ path('app_flash')}}">Flashs</a></li>
-            <li><a href="{{ path('app_accessory')}}">Accessoires</a></li>
-            <li><a href="{{ path('app_sell_equipment')}}">Vendez votre matériel</a></li>
+            <li><a href="{{ path('app_product', {category: "boitiers"})}}">Boitiers</a></li>
+            <li><a href="{{ path('app_product', {category: "optiques"})}}">Optiques</a></li>
+            <li><a href="{{ path('app_product', {category: "flashs"})}}">Flashs</a></li>
+            <li><a href="{{ path('app_product', {category: "accessoires"})}}">Accessoires</a></li>
+            {# <li><a href="{{ path('app_sell_equipment')}}">Vendez votre matériel</a></li> #}
         </ul>
     </div>
 

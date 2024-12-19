@@ -9,9 +9,13 @@
 {# Mon image d'entête #}
 <div class="fond"></div>
 
-<p>produits récement ajoutés</p>
-<br>
 
+<div class="recentlyAdd">
+<p>Produits recemment ajoutés</p>
+{% for produit in products %}
+{{produit.id}}
+{% endfor %}
+</div>
 
 
 </main>
@@ -22,8 +26,4 @@
 <footer>
 
 </footer>
-
-
-
-
 {% endblock %}
