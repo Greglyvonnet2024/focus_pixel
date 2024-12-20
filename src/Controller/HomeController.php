@@ -14,6 +14,7 @@ class HomeController extends AbstractController
     public function index(ProductSellRepository $productSellRepository): Response
     {
 
+        // !!!! A changer le 'id' pour faire aparaitre le produit sa photo et son prix//
         $items = $productSellRepository->findBy([], ['id' => 'DESC'], 4);
        
         return $this->render('home/index.html.twig', [

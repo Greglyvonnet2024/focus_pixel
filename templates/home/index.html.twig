@@ -6,16 +6,17 @@
 
 <main class="contenair">
 
-{# Mon image d'entête #}
-<div class="fond"></div>
+    {# Mon image d'entête #}
+    <div class="fond"></div>
 
 
-<div class="recentlyAdd">
-<p>Produits recemment ajoutés</p>
-{% for produit in products %}
-{{produit.id}}
-{% endfor %}
-</div>
+    <div class="recentlyAdd">
+        <p>Produits recemment ajoutés</p>
+
+        {% for product in products %}
+        {{product.id}}
+        {% endfor %}
+    </div>
 
 
 </main>

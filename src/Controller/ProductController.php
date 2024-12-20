@@ -15,7 +15,8 @@ class ProductController extends AbstractController
         $produits = $productSellRepository->findBy(['category' => $category]);
         return $this->render('product/index.html.twig', [
             'controller_name' => 'ProductController',
-            'products' => $produits
+            'products' => $produits,
+            'titre' => $category
         ]);
     }
 }

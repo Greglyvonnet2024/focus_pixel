@@ -114,8 +114,19 @@ flex-flow
   border: 1px;
   vertical-align: baseline;
   box-sizing: border-box;
+
+  /* !!! afin d'avoir un visuel sur la constuction de ma page ne pas oublier d'effacer >> */
   border: 1px solid;
+
+    h2{
+    text-transform:capitalize;
+
+    }
+
+
 }
+
+
 
 /* iframe,
 img {
@@ -188,22 +199,47 @@ header{
 
   .fond {
   background-image: url("../img/optic.png");
- background-size: cover;
- background-position: center;
- background-repeat: no-repeat;
- width: 100%;
- height: 70vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 70vh;
   } 
   
   
 /*************** END HEADER + NAV ***************/
+
+/*************** LOGIN ***************/
+
+.log{
+  height: 250px;
+  width: 300px;
+  border-radius: 10px 10px;
+justify-content: space-between;
+
+}
+
+/*************** END LOGIN ***************/
+
+
+/*************** REGISTRATION ***************/
+.register{
+  height: 250px;
+  width: 300px;
+  border-radius: 10px 10px;
+  justify-content: space-between;
+}
+
+
+/*************** END REGISTRATION ***************/
+
 
 /*************** OPTIQUE ***************/
 /* {# <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style> #} */
-
+/* 
 .opticalPage{
 
 background-image: url("../img/optiques.jpg");
@@ -212,7 +248,7 @@ background-position: center;
 background-repeat: no-repeat;
 width: 100%;
 height: 100%;
-}
+} */
 
 
 /*************** END OPTIQUE ***************
@@ -244,12 +280,18 @@ height: 100%;
 /*************** FOOTER ***************/
 
 footer{
+  display: flex;
+  background-color: grey;
+  color: white;
+  justify-content: space-evenly;
+     align-items: center;
 
-    .map{
-      
-      height:100px;
-      width:100px;
+    .us{
+      width: 400px;
     }
+
+
+
 
 }
 
