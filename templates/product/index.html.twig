@@ -1,10 +1,45 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProductController!{% endblock %}
+{% block title %}
+	Hello ProductController!
+{% endblock %}
 
 {% block body %}
-<h2>{{titre}}</h2>
-{% for item in products %}
-    
-{% endfor %}
+
+
+	<div class="affichage">
+		{% for item in products %}
+			<div>
+				<div class="product_img">
+					<img src="{{ asset("/assets/img/" ~ item.img) }}" alt="{{item.nom}}">
+				</div>
+
+				<div>
+					<h3>
+						{{ item.marque }}, {{ item.nom }}
+					</h3>
+
+					<p>
+						Etat:
+						{{item.etat}}
+					</p>
+
+					<p>
+						Prix:
+						{{ item.prix }}
+						€
+					</p>
+
+					<p>
+						<a href="{{path('app_description', {id : item.id})}}">Description</a>
+					</p>
+
+					<button class="ajout" data-bouton='page-prod' data-id="{{item.id}}">Ajouter au panier</button>
+				</div>
+
+			</div>
+
+		{% endfor %}
+
+	</div>
 {% endblock %}

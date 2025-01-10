@@ -116,17 +116,12 @@ flex-flow
   box-sizing: border-box;
 
   /* !!! afin d'avoir un visuel sur la constuction de ma page ne pas oublier d'effacer >> */
-  border: 1px solid;
+  /* border: 1px solid; */
 
-    h2{
-    text-transform:capitalize;
-
-    }
-
-
+  h2 {
+    text-transform: capitalize;
+  }
 }
-
-
 
 /* iframe,
 img {
@@ -140,99 +135,122 @@ img {
 } */
 
 /* .container { */
-  /* width:1000px; */
-  /*margin:0 auto;pour centrer la page dans le navigateurs*/
-  /* box-shadow: 0 0 10px rgba(0,0,0,0.5);
+/* width:1000px; */
+/*margin:0 auto;pour centrer la page dans le navigateurs*/
+/* box-shadow: 0 0 10px rgba(0,0,0,0.5);
     background-color: #fff; */
 /* }  */
 
 /*************** END GLOBAL ***************/
 
 /*************** HEADER + NAV***************/
-header{
-  
+header {
   display: flex;
   /* width: 100%; */
 
-
-    .logo img{
+  .logo img {
     padding: 0;
     height: 150px;
-    }
+  }
 
-    nav{
-      width: 100%;
+  nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .item ul {
       display: flex;
-      
-
-
-        .item ul{
-        display: flex;
-        list-style-type: none;
-        }
-
-
-        .item a{
-        text-decoration: none;
-        color: black;
-        justify-content: center;
-        }
-
-.account li{
-        justify-content: end;
-      }
-
-
-        .account ul{
-        display:flex;
-        list-style-type: none;
-        }
-
-        .account a{
-        text-decoration: none;
-        color: black;
-        
-        }
+      list-style-type: none;
     }
-    
-}  
 
-  .fond {
+    /* .item ul li a{
+       gap: 10px;
+     
+    }  */
+
+    .item a {
+      text-decoration: none;
+      color: rgb(34, 31, 216);
+      justify-content: center;
+      padding: 10px;
+      margin: 0 10px;
+    }
+
+    .account ul {
+      display: flex;
+      list-style-type: none;
+    }
+
+    .account {
+      margin-right: 13px;
+    }
+
+    .account li {
+      margin: 5px;
+    }
+
+    .account a {
+      text-decoration: none;
+      color: black;
+      padding: 10px;
+    }
+  }
+}
+
+.fond {
   background-image: url("../img/optic.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   width: 100%;
   height: 70vh;
-  } 
+
+
+
+  box-shadow: 0 0 30px 20px rgb(0, 134, 168), 0 0 50px 30px rgb(185, 2, 28);
+
+  @keyframes halo-pulse {
+    0% {
+      box-shadow: 0 0 30px 20px rgb(0, 134, 168), 0 0 50px 30px rgb(185, 2, 28);
+    }
+    50% {
+      box-shadow: 0 0 30px 20px rgb(0, 134, 168), 0 0 50px 30px rgb(185, 2, 28);
+    }
+    100% {
+      box-shadow: 00 0 30px 20px rgb(0, 134, 168), 0 0 50px 30px rgb(185, 2, 28);
+    }
+  }
+
+
+}
+
   
+
   
+
 /*************** END HEADER + NAV ***************/
 
 /*************** LOGIN ***************/
 
-.log{
-  height: 250px;
-  width: 300px;
-  border-radius: 10px 10px;
-justify-content: space-between;
-
-}
-
-/*************** END LOGIN ***************/
-
-
-/*************** REGISTRATION ***************/
-.register{
+.log {
   height: 250px;
   width: 300px;
   border-radius: 10px 10px;
   justify-content: space-between;
 }
 
+/*************** END LOGIN ***************/
+
+/*************** REGISTRATION ***************/
+.register {
+  height: 250px;
+  width: 300px;
+  border-radius: 10px 10px;
+  justify-content: space-between;
+}
 
 /*************** END REGISTRATION ***************/
-
 
 /*************** OPTIQUE ***************/
 /* {# <style>
@@ -250,10 +268,36 @@ width: 100%;
 height: 100%;
 } */
 
-
 /*************** END OPTIQUE ***************
 
+/*************** BOITIERS ***************/
+
+/*************** END BOITIERS ***************
+
 /*************** MAIN ***************/
+
+.affichage {
+  display: flex;
+}
+
+.affichage > div {
+  width: 500px;
+}
+
+.product_img {
+  width: 400px;
+  height: 300px;
+  margin: auto;
+}
+
+.product_img img {
+  width: 100%;
+  height: 100%;
+}
+
+h3 {
+  text-align: center;
+}
 
 /*************** END MAIN ***************/
 
@@ -279,28 +323,19 @@ height: 100%;
 
 /*************** FOOTER ***************/
 
-footer{
+footer {
   display: flex;
   background-color: grey;
   color: white;
   justify-content: space-evenly;
-     align-items: center;
+  align-items: center;
 
-    .us{
-      width: 400px;
-    }
-
-
-
-
+  .us {
+    width: 400px;
+  }
 }
 
-
-
 /*************** END FOOTER ***************/
-
-
-
 
 /*************** MEDIAQUERY ***************/
 
@@ -329,7 +364,3 @@ footer{
 } */
 
 /*************** END MEDIAQUERY ***************/
-
-
-
-

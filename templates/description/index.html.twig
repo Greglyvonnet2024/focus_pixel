@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DescriptionController!{% endblock %}
+
+{% block body %}
+
+<h1>Description</h1>
+
+<div class="descript">
+
+    <h2>{{produit.nom}}</h2>
+        <p>{{produit.description}}</p>
+
+        <button class='ajout' data-bouton='description' data-id='{{produit.id}}'>Ajouter au panier</button>
+
+</div>
+
+{% endblock %}
