@@ -7,48 +7,40 @@
 <main class="contenair">
 
     {# Mon image d'entête #}
-    <div class="fond"></div>
+    <div class="hero"></div>
 
-
+	{# Mon bloc DIV concernant mes produits récemment ajoutés #}
     <div class="recentlyAdd">
     
-        <p>Produits recemment ajoutés</p>
+    	<h2>Produits récemment ajoutés</h2>
 
-        <div class="affichage">
-		{% for item in products %}
-			<div>
-				<div class="product_img">
-					<img src="{{ asset("/assets/img/" ~ item.img) }}" alt="{{item.nom}}">
-				</div>
+        	<div class="productAdd">
+				{% for item in products %}
 
-				<div>
-					<h3>
-						{{ item.marque }}, {{ item.nom }}
-					</h3>
+					<div class="product">
 
-					<p>
-						Etat:
-						{{item.etat}}
-					</p>
+						<div class="productImg">
+							<img src="{{ asset("/assets/img/" ~ item.img) }}" alt="{{item.nom}}">
+						</div>
 
-					<p>
-						Prix:
-						{{ item.prix }}
-						€
-					</p>
+							<div class="productInfo">
 
-					<p>
-						<a href="{{path('app_description', {id : item.id})}}">Description</a>
-					</p>
+								<h3>{{ item.marque }} {{ item.nom }}</h3>
 
-					<button class="ajout" data-bouton='page-prod' data-id="{{item.id}}">Ajouter au panier</button>
-				</div>
+								<p>Etat physique: {{item.etat}}</p>
+
+								<p>Prix:{{ item.prix }}€</p>
+
+								<p><a href="{{path('app_description', {id : item.id})}}">Description</a></p>
+
+								<button class="addBasket" data-bouton='page-prod' data-id="{{item.id}}">Ajouter au panier</button>
+							</div>
+					
+					</div>
+
+				{% endfor %}
 
 			</div>
-
-		{% endfor %}
-
-	</div>
         
     </div>
 
