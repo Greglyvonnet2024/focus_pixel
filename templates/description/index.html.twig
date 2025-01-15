@@ -4,11 +4,20 @@
 
 {% block body %}
 
-<h1>Description</h1>
+<h1 class="descriptTitle">Description</h1>
 
 <div class="descript">
 
-    <h2>{{produit.nom}}</h2>
+    <h2>{{produit.marque}} {{produit.nom}}</h2>
+
+    <div class="carouselProd">
+
+
+        {# <button class="btn" id="prev"></button>
+        <button class="btn" id="next"></button> #}
+
+    </div>
+
         <p>{{produit.description}}</p>
 
         <button class='ajout' data-bouton='description' data-id='{{produit.id}}'>Ajouter au panier</button>

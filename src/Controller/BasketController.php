@@ -13,10 +13,20 @@ use Symfony\Component\Routing\Attribute\Route;
 class BasketController extends AbstractController
 {
     #[Route('/basket', name: 'app_basket')]
-    public function index(): Response
+    public function index(SessionInterface $sessionInterface): Response
     {
+
+        //AFFICHER LE TOTAL DANS PRODUIT PLUS LE PRIX DANS LE PANIER >>>
+        
+        // $total = 0;
+        // foreach($id as $product) {
+
+        // }
+
+        $product = $sessionInterface->get('cart', []);
         return $this->render('basket/index.html.twig', [
-            'controller_name' => 'Panier',
+            'controller_name' => 'panier',
+            'product' => $product
         ]);
     }
 
@@ -27,16 +37,13 @@ class BasketController extends AbstractController
         $id = $data['id'];
         $product = $productSellRepository->find($id);
         $cart = $sessionInterface->get('cart', []);
-
         foreach ($cart as $c) {
-            if ($c["product"]->getId() == $product->getId()) {
+            if ($c->getId() == $product->getId()) {
                 return new JsonResponse(['error_doublons' => 'le produit est déja dans votre panier']);
             }
         }
 
-        $cart[] = [
-            'product' => $product
-        ];
+        $cart[] = $product;
 
         $sessionInterface->set('cart', $cart);
         $numb = count($cart);

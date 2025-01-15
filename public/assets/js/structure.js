@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ id: ID }),
+        body: JSON.stringify({ id: ID }),// $data = ['id' => 5]; dans le contrôleur
       })
         .then((result) => {
           return result.json();

@@ -4,5 +4,46 @@
 
 {% block body %}
 
+<h1>{{ controller_name }}</h1>
+
+<div class="cart"> 
+
+    {% for item in product %}
+
+        <div class="productCart">
+        
+            <img src="{{asset('assets/img/'~ item.img)}}" alt="{{item.nom}}">
+
+            <div class="infos"><h4>{{ item.marque }} {{ item.nom }}</h4>
+
+                <p>quantité:</p>
+                <p>prix: {{item.prix}}</p>
+
+                <a href="#" class="btn btn-red btn-sm">
+                <i class="fas fa-trash"></i></a>
+            </div>
+        
+        </div>
+
+    {% endfor %}
+
+</div>
+
+
+<div class="payement">
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
 
 {% endblock %}

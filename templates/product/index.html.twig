@@ -6,40 +6,35 @@
 
 {% block body %}
 
+	<h1 class="titlePage">{{titre}}</h1>
+	
+		<div class="productSell">
 
-	<div class="affichage">
-		{% for item in products %}
-			<div>
-				<div class="product_img">
-					<img src="{{ asset("/assets/img/" ~ item.img) }}" alt="{{item.nom}}">
-				</div>
+			{% for item in products %}
 
 				<div>
-					<h3>
-						{{ item.marque }}, {{ item.nom }}
-					</h3>
+					<div class="productImg">
+						<img src="{{ asset("/assets/img/" ~ item.img) }}" alt="{{item.nom}}">
+					</div>
 
-					<p>
-						Etat:
-						{{item.etat}}
-					</p>
+					<div class="productInfo">
 
-					<p>
-						Prix:
-						{{ item.prix }}
-						€
-					</p>
+						<h3>{{ item.marque }}, {{ item.nom }}</h3>
 
-					<p>
-						<a href="{{path('app_description', {id : item.id})}}">Description</a>
-					</p>
+						<p>	Etat:{{item.etat}}</p>
 
-					<button class="ajout" data-bouton='page-prod' data-id="{{item.id}}">Ajouter au panier</button>
+						<p>Prix:{{ item.prix }}€</p>
+
+						<p><a href="{{path('app_description', {id : item.id})}}">Description</a></p>
+
+						<button class="ajout" data-bouton='page-prod' data-id="{{item.id}}">Ajouter au panier</button>
+					
+					</div>
+
 				</div>
 
-			</div>
+			{% endfor %}
 
-		{% endfor %}
+		</div>
 
-	</div>
 {% endblock %}
