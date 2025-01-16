@@ -16,13 +16,6 @@ class BasketController extends AbstractController
     public function index(SessionInterface $sessionInterface): Response
     {
 
-        //AFFICHER LE TOTAL DANS PRODUIT PLUS LE PRIX DANS LE PANIER >>>
-        
-        // $total = 0;
-        // foreach($id as $product) {
-
-        // }
-
         $product = $sessionInterface->get('cart', []);
         return $this->render('basket/index.html.twig', [
             'controller_name' => 'panier',
@@ -51,4 +44,12 @@ class BasketController extends AbstractController
 
         return new JsonResponse(['success'=> 'Votre article a été ajouté au panier', 'nb' => $numb]);
     }
+
+#[Route('/supp', name: 'app_supp')]
+
+public function supp(Request $request, SessionInterface $sessionInterface){
+        $data = json_decode($request->getContent(), true);
+
+}
+
 }
