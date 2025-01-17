@@ -49,7 +49,22 @@ class BasketController extends AbstractController
 
 public function supp(Request $request, SessionInterface $sessionInterface){
         $data = json_decode($request->getContent(), true);
+        
+        $cart = $sessionInterface->get('cart', []);
+        // dd($cart);
+        foreach ($cart as $clef =>$c) {
+            if ($c->getId() == $data['id']) {
+                unset($cart[$clef]);
+                
+            }
+        }
+        array_values($cart);
 
+        $sessionInterface->set('cart', $cart);
+        $numb = count($cart);
+        $sessionInterface->set('numb_item', $numb);
+
+        return new JsonResponse(['success' => 'Le produit a bien été supprimé de votre panier']);
 }
 
 }

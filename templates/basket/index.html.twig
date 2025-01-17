@@ -11,7 +11,8 @@
     {% for item in product %}
 
         <div class="productCart">
-        
+        {# ~ = concatenation : resultat = "assets/img/optic.png" #}
+
             <img src="{{asset('assets/img/'~ item.img)}}" alt="{{item.nom}}">
 
             <div class="infos"><h4>{{ item.marque }} {{ item.nom }}</h4>
@@ -19,7 +20,7 @@
                 <p>quantité:</p>
                 <p>prix: {{item.prix}}</p>
 
-                <a href="#" class="btn btn-danger btn-sm supp">
+                <a href="#" class="btn btn-danger btn-sm supp" data-id="{{item.id}}">
                 <i class="fas fa-trash"></i></a>
             </div>
         
