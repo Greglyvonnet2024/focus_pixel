@@ -64,7 +64,7 @@ public function supp(Request $request, SessionInterface $sessionInterface){
         $numb = count($cart);
         $sessionInterface->set('numb_item', $numb);
 
-        return new JsonResponse(['success' => 'Le produit a bien été supprimé de votre panier']);
+        return new JsonResponse(['success' => 'Le produit a bien été supprimé de votre panier', 'numb_cart'=>$numb]);
 }
 
 }

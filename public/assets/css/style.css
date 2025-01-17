@@ -111,7 +111,7 @@ flex-flow
 * {
   margin: 0;
   padding: 0;
-  border: 1px;
+  /* border: 1px; */
   vertical-align: baseline;
   box-sizing: border-box;
 
@@ -242,15 +242,89 @@ header {
 
 /*************** MAIN HOME ***************/
 
-.productAdd {
+.prodAdd {
   display: flex;
   justify-content: space-around;
-  color: red;
 }
 
 .product {
-  /* display: flex; */
-  color: blue;
+margin: auto;
+
+}
+
+/* .prodImg {
+  width: 520px;
+  height: 550px;
+  border: 5px;
+} */
+
+.prodImg img {
+  width: 486px;
+  height: 302px;
+  margin: auto;
+  object-fit: contain;
+}
+
+h3 {
+  text-align: center;
+}
+
+.addBasket {
+  padding: 5px;
+  margin: 0 5px;
+  border-radius: 5px 5px 5px;
+  background-color: gray;
+  color: white;
+  font-weight: 700;
+  justify-content: end;
+}
+
+
+
+/*************** END MAIN HOME***************/
+
+
+/*************** FORM ***************/
+.registerForm{
+  height: 250px;
+  width: 400px;
+  margin: auto;
+  border: 1px black;
+  border-radius: 10px 10px;
+  background-color: rgb(151, 151, 151);
+
+}
+
+.login{
+   height: 200px;
+  width: 300px; 
+
+   border: 1px black;
+   border-radius: 15px 15px;
+margin: auto;
+  background-color: rgb(151, 151, 151);
+}
+
+
+
+
+/*************** END FORM ***************/
+
+
+/*************** MAIN PRODUCT***************/
+
+.productSell {
+  display: flex;
+  justify-content: space-around;
+}
+
+.productAdd {
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.product {
 margin: auto;
  
 }
@@ -284,24 +358,6 @@ h3 {
   font-weight: 700;
   justify-content: end;
 }
-
-
-
-/*************** END MAIN HOME***************/
-
-/*************** MAIN PRODUCT***************/
-
-.productSell {
-  display: flex;
-  justify-content: space-around;
-
-}
-
-
-
-
-
-
 
 
 /*************** END MAIN PRODUCT***************/
@@ -350,6 +406,14 @@ footer {
     width: 400px;
   }
 }
+
+.footLogo img{
+  width: 100px;
+  height: 100px;
+}
+
+
+
 
 /*************** END FOOTER ***************/
 

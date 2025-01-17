@@ -14,5 +14,10 @@ class ProductbuyController extends AbstractController
         return $this->render('productbuy/index.html.twig', [
             'controller_name' => 'ProductbuyController',
         ]);
+
+
+
+
+        
     }
 }

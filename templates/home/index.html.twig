@@ -14,16 +14,19 @@
     
     	<h2>Produits récemment ajoutés</h2>
 
-        	<div class="productAdd">
+{# prodAdd est anciennement "productAdd" #}
+        	<div class="prodAdd">
 				{% for item in products %}
 
 					<div class="product">
 
-						<div class="productImg">
+{# prodImg est anciennement "productImg" #}
+						<div class="prodImg">
 							<img src="{{ asset("/assets/img/" ~ item.img) }}" alt="{{item.nom}}">
 						</div>
 
-							<div class="productInfo">
+{# prodInfo est anciennement "productInfo" #}
+							<div class="prodInfo">
 
 								<h3>{{ item.marque }} {{ item.nom }}</h3>
 
@@ -33,7 +36,7 @@
 
 								<p><a href="{{path('app_description', {id : item.id})}}">Description</a></p>
 
-								<button class="addBasket" data-bouton='page-prod' data-id="{{item.id}}">Ajouter au panier</button>
+								<button class="addBasket ajout" data-bouton='page-prod' data-id="{{item.id}}">Ajouter au panier</button>
 							</div>
 					
 					</div>
