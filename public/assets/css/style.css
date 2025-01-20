@@ -111,9 +111,9 @@ flex-flow
 * {
   margin: 0;
   padding: 0;
-  /* border: 1px; */
   vertical-align: baseline;
   box-sizing: border-box;
+  font-family: Open sans-serif; 
 
   /* !!! afin d'avoir un visuel sur la constuction de ma page ne pas oublier d'effacer >> */
   /* border: 1px solid; */
@@ -150,9 +150,117 @@ img {
 /*************** END GLOBAL ***************/
 
 /*************** HEADER + NAV***************/
-header {
+
+
+
+/* Conteneur global pour l'image */
+.hero {
+  background-image: url("../img/diaph.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+  position: relative;
+}
+
+/* Conteneur pour le logo et la navigation */
+.logNav {
   display: flex;
-  /* width: 100%; */
+
+  /* justify-content: space-between; */
+  
+  align-items: center;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  padding: 0 20px;
+  color: white; 
+  z-index: 10;
+}
+
+/* Logo */
+.logo img {
+  height: 150px; 
+}
+
+/* Navigation */
+nav {
+  display: flex; 
+  gap: 20px; 
+}
+
+nav ul {
+  display: flex; 
+  list-style: none; 
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+nav ul li a {
+  text-decoration: none; 
+  color: white; /
+  font-size: 16px; 
+  font-weight: bold;
+}
+
+ /* .item ul {
+      justify-content: center;
+    } */
+
+
+
+
+
+nav .account ul {
+  justify-content: end;
+  display: flex; 
+  gap: 15px;
+}
+
+nav .account ul li a {
+  color: white;
+}
+
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)); /* Dégradé */
+  z-index: 1; 
+}
+
+.header-content {
+  z-index: 2; 
+}
+
+
+
+
+
+
+
+
+/* header {
+
+.hero {
+  background-image: url("../img/diaph.jpg");  
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 80vh;
+  height: 400px;
+  background-repeat: no-repeat;
+  position: relative;
+  
+} 
 
   .logo img {
     padding: 0;
@@ -165,8 +273,11 @@ header {
     align-items: center;
     justify-content: space-between;
 
-    /* .item li {
-    } */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 
     .item ul {
       display: flex;
@@ -180,8 +291,7 @@ header {
       margin: 0 10px;
     }
 
-    /* .item a :hover {
-    } */
+   
 
     .account ul {
       display: flex;
@@ -202,20 +312,22 @@ header {
       padding: 10px;
     }
   }
-}
+} */
 
-.hero {
-  /* background-image: url("../img/optic.png"); */
-  background-image: url("../img/diaph.jpg");
+/* .hero {
+  background-image: url("../img/diaph.jpg");  
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
+
   width: 100%;
   height: 80vh;
 
-  /* object-fit: contain; */
-
-} 
+  
+  height: 400px;
+  background-repeat: no-repeat;
+  position: relative;
+  
+}  */
 
 /*************** END HEADER + NAV ***************/
 
@@ -249,7 +361,8 @@ header {
 
 .product {
 margin: auto;
-
+ border: 1px solid black;
+ border-radius: 10PX 10PX;
 }
 
 /* .prodImg {
@@ -333,7 +446,8 @@ margin: auto;
   width: 520px;
   height: 550px;
   border: 5px;
-  color: rgb(241, 7, 136);
+  border: 1px solid black;
+  border-radius: 10px 10px 0 0;
 
 }
 
@@ -341,13 +455,21 @@ margin: auto;
   width: 486px;
   height: 302px;
   margin: auto;
-  color: chartreuse;
   object-fit: contain;
+  
 }
 
 h3 {
   text-align: center;
 }
+
+.productInfo{
+
+  border: 1px solid black;
+  border-radius:  0 0 10px 10px;
+}
+
+
 
 .addBasket {
   padding: 5px;
@@ -444,3 +566,15 @@ footer {
 } */
 
 /*************** END MEDIAQUERY ***************/
+
+
+​
+/* Nouvel ajout changement du header>>  
+
+
+
+
+
+
+*/
+​
