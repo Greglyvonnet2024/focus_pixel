@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -44,6 +46,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 255)]
     private ?string $adresse = null;
+
+    /**
+     * @var Collection<int, Productbuy>
+     */
+    #[ORM\OneToMany(targetEntity: Productbuy::class, mappedBy: 'user')]
+    private Collection $productbuys;
+
+    public function __construct()
+    {
+        $this->productbuys = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -89,7 +102,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @param list<string> $roles
      */
-    public function setRoles(array $roles): static
+    public function setRoles(array $roles = ['ROLE_USER']): static
     {
         $this->roles = $roles;
 
@@ -164,6 +177,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setAdresse(string $adresse): static
     {
         $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Productbuy>
+     */
+    public function getProductbuys(): Collection
+    {
+        return $this->productbuys;
+    }
+
+    public function addProductbuy(Productbuy $productbuy): static
+    {
+        if (!$this->productbuys->contains($productbuy)) {
+            $this->productbuys->add($productbuy);
+            $productbuy->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProductbuy(Productbuy $productbuy): static
+    {
+        if ($this->productbuys->removeElement($productbuy)) {
+            // set the owning side to null (unless already changed)
+            if ($productbuy->getUser() === $this) {
+                $productbuy->setUser(null);
+            }
+        }
 
         return $this;
     }

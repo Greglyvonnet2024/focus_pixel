@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\OrderRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: OrderRepository::class)]
@@ -14,44 +16,25 @@ class Order
     private ?int $id = null;
 
     #[ORM\Column]
-    private ?int $user_id = null;
-
-    #[ORM\Column]
-    private ?float $id_produit = null;
-
-    #[ORM\Column]
     private ?float $prix = null;
 
     #[ORM\Column]
     private ?float $quantity = null;
 
+    /**
+     * @var Collection<int, Productbuy>
+     */
+    #[ORM\OneToMany(targetEntity: Productbuy::class, mappedBy: 'command')]
+    private Collection $productbuys;
+
+    public function __construct()
+    {
+        $this->productbuys = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getUserId(): ?int
-    {
-        return $this->user_id;
-    }
-
-    public function setUserId(int $user_id): static
-    {
-        $this->user_id = $user_id;
-
-        return $this;
-    }
-
-    public function getIdProduit(): ?float
-    {
-        return $this->id_produit;
-    }
-
-    public function setIdProduit(float $id_produit): static
-    {
-        $this->id_produit = $id_produit;
-
-        return $this;
     }
 
     public function getPrix(): ?float
@@ -74,6 +57,36 @@ class Order
     public function setQuantity(float $quantity): static
     {
         $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Productbuy>
+     */
+    public function getProductbuys(): Collection
+    {
+        return $this->productbuys;
+    }
+
+    public function addProductbuy(Productbuy $productbuy): static
+    {
+        if (!$this->productbuys->contains($productbuy)) {
+            $this->productbuys->add($productbuy);
+            $productbuy->setCommand($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProductbuy(Productbuy $productbuy): static
+    {
+        if ($this->productbuys->removeElement($productbuy)) {
+            // set the owning side to null (unless already changed)
+            if ($productbuy->getCommand() === $this) {
+                $productbuy->setCommand(null);
+            }
+        }
 
         return $this;
     }

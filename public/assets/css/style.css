@@ -124,7 +124,17 @@ text-transform: capitalize;
 
   h2 {
     text-transform: capitalize;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    text-decoration: underline;
+
   }
+}
+
+.contenair{
+  margin-left: 50px;
+margin-right: 50px;
+margin-bottom: 50px;
 }
 
 
@@ -151,8 +161,6 @@ img {
 
 /*************** HEADER + NAV***************/
 
-
-
 /* Conteneur global pour l'image */
 .hero {
   background-image: url("../img/diaph.jpg");
@@ -164,10 +172,7 @@ img {
 
 /* Conteneur pour le logo et la navigation */
 .logNav {
-  display: flex;
-
-  /* justify-content: space-between; */
-  
+  display: flex;  
   align-items: center;
   position: absolute;
   top: 20px;
@@ -179,6 +184,10 @@ img {
 }
 
 /* Logo */
+.logo{
+margin-right: 20px;
+}
+
 .logo img {
   height: 150px; 
 }
@@ -187,44 +196,58 @@ img {
 nav {
   display: flex; 
   gap: 20px; 
+  flex-grow: 1;
 }
 
-nav ul {
+ul {
   display: flex; 
   list-style: none; 
   padding: 0;
   margin: 0;
 }
 
-nav ul li {
-  margin: 0 10px;
+a:hover {
+  /*Halo lumineux doux autour du lien*/
+/* box-shadow: 5px 2px 2px rgba(255, 255, 255, 0.8);  */
+
+/*Zoom léger*/
+  transform: scale(1.2);
+
 }
 
-nav ul li a {
+nav a{
   text-decoration: none; 
-  color: white; /
-  font-size: 16px; 
+  color: white;
+  font-size: 18px; 
   font-weight: bold;
+
+  border-radius: 5px;
+  /* padding: 10px 15px; */
+display: inline-block;
+  transition: 0.4s ease, transform 0.4s ease;
 }
 
- /* .item ul {
-      justify-content: center;
-    } */
+.item li{
+    margin: 0 30px;
+}
 
+.account {
+  margin-left: auto; /* Place .account à l'extrémité droite */
+}
 
-
-
-
-nav .account ul {
+.account ul {
   justify-content: end;
   display: flex; 
   gap: 15px;
 }
 
-nav .account ul li a {
-  color: white;
+.account li {
+ margin: 0 10px;
 }
 
+.account a {
+  color: white;
+}
 
 .hero::before {
   content: '';
@@ -241,93 +264,6 @@ nav .account ul li a {
   z-index: 2; 
 }
 
-
-
-
-
-
-
-
-/* header {
-
-.hero {
-  background-image: url("../img/diaph.jpg");  
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  height: 80vh;
-  height: 400px;
-  background-repeat: no-repeat;
-  position: relative;
-  
-} 
-
-  .logo img {
-    padding: 0;
-    height: 150px;
-  }
-
-  nav {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-    .item ul {
-      display: flex;
-      list-style-type: none;
-    }
-
-    .item a {
-      text-decoration: none;
-      justify-content: center;
-      padding: 10px;
-      margin: 0 10px;
-    }
-
-   
-
-    .account ul {
-      display: flex;
-      list-style-type: none;
-    }
-
-    .account {
-      margin-right: 13px;
-    }
-
-    .account li {
-      margin: 5px;
-    }
-
-    .account a {
-      text-decoration: none;
-      color: black;
-      padding: 10px;
-    }
-  }
-} */
-
-/* .hero {
-  background-image: url("../img/diaph.jpg");  
-  background-size: cover;
-  background-position: center;
-
-  width: 100%;
-  height: 80vh;
-
-  
-  height: 400px;
-  background-repeat: no-repeat;
-  position: relative;
-  
-}  */
 
 /*************** END HEADER + NAV ***************/
 
@@ -468,7 +404,11 @@ h3 {
   border: 1px solid black;
   border-radius:  0 0 10px 10px;
 }
-
+.productInfo a{
+  border: 1px black solid;
+  border-radius: 5px;
+color: black;
+}
 
 
 .addBasket {
@@ -567,14 +507,3 @@ footer {
 
 /*************** END MEDIAQUERY ***************/
 
-
-​
-/* Nouvel ajout changement du header>>  
-
-
-
-
-
-
-*/
-​
