@@ -21,10 +21,10 @@ class ProductBuy
     private ?string $nom = null;
 
     #[ORM\Column]
-    private ?float $prix_estimer = null;
+    private ?float $prix = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $etat_estimer = null;
+    private ?string $etat = null;
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
@@ -69,26 +69,26 @@ class ProductBuy
         return $this;
     }
 
-    public function getPrixEstimer(): ?float
+    public function getPrix(): ?float
     {
-        return $this->prix_estimer;
+        return $this->prix;
     }
 
-    public function setPrixEstimer(float $prix_estimer): static
+    public function setPrix(float $prix_estimer): static
     {
-        $this->prix_estimer = $prix_estimer;
+        $this->prix = $prix_estimer;
 
         return $this;
     }
 
     public function getEtatEstimer(): ?string
     {
-        return $this->etat_estimer;
+        return $this->etat;
     }
 
     public function setEtatEstimer(string $etat_estimer): static
     {
-        $this->etat_estimer = $etat_estimer;
+        $this->etat = $etat_estimer;
 
         return $this;
     }
