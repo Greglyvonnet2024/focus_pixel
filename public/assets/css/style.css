@@ -316,6 +316,7 @@ margin: auto;
 
 h3 {
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .addBasket {
@@ -380,7 +381,7 @@ margin: auto;
 
 .productImg {
   width: 520px;
-  height: 550px;
+  height: 500px;
   border: 5px;
   border: 1px solid black;
   border-radius: 10px 10px 0 0;
@@ -400,15 +401,39 @@ h3 {
 }
 
 .productInfo{
-
   border: 1px solid black;
   border-radius:  0 0 10px 10px;
+  margin: auto;
 }
+
+
+
 .productInfo a{
   border: 1px black solid;
   border-radius: 5px;
 color: black;
+  margin-right: 20px;
 }
+ 
+
+.productButton{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.productButton a {
+
+padding: 10px;
+border-radius: 30px 30px;
+}
+
+.productButton button {
+  padding: 10px;
+border-radius: 30px 30px;
+font-size:;
+}
+
 
 
 .addBasket {
@@ -418,7 +443,7 @@ color: black;
   background-color: gray;
   color: white;
   font-weight: 700;
-  justify-content: end;
+  
 }
 
 

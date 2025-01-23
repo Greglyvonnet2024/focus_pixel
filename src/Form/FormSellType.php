@@ -16,9 +16,11 @@ class FormSellType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('marque :', TextType::class)
-            ->add('nom :' , TextType::class)
-            ->add('etat :',ChoiceType::class, [
+            ->add('marque', TextType::class, [
+                "label" => "Marque:"
+            ])
+            ->add('nom' , TextType::class)
+            ->add('etat',ChoiceType::class, [
                 'choices' => [
                     'Usé' => 'use',
                     'Bon' => 'bon',

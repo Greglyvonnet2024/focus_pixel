@@ -6,35 +6,43 @@
 
 {% block body %}
 
-	<h1 class="titlePage">{{titre}}</h1>
+	<main class="contenair">
+
+		<h1 class="titlePage">{{titre}}</h1>
+
+			<div class="productSell">
+
+				{% for item in products %}
+
+					<div>
+						<div class="productImg">
+							<img src="{{ asset("/assets/img/" ~ item.img) }}" alt="{{item.nom}}">
+						</div>
+
+						<div class="productInfo">
+
+							<h3>{{ item.marque }}, {{ item.nom }}</h3>
+
+							<p><b>Etat:</b>{{item.etat}}</p>
+
+							<p><b>Prix:</b>{{ item.prix }}€</p>
+
+								<div class="productButon">
+
+									<p><a href="{{path('app_description', {id : item.id})}}">Description</a></p>
+
+									<button class="ajout" data-bouton='page-prod' data-id="{{item.id}}">Ajouter au panier</button>
+
+								</div>
+						</div>
+
+					</div>
+
+				{% endfor %}
+
+			</div>
 	
-		<div class="productSell">
+	</main>
 
-			{% for item in products %}
-
-				<div>
-					<div class="productImg">
-						<img src="{{ asset("/assets/img/" ~ item.img) }}" alt="{{item.nom}}">
-					</div>
-
-					<div class="productInfo">
-
-						<h3>{{ item.marque }}, {{ item.nom }}</h3>
-
-						<p>	Etat:{{item.etat}}</p>
-
-						<p>Prix:{{ item.prix }}€</p>
-
-						<p><a href="{{path('app_description', {id : item.id})}}">Description</a></p>
-
-						<button class="ajout" data-bouton='page-prod' data-id="{{item.id}}">Ajouter au panier</button>
-					
-					</div>
-
-				</div>
-
-			{% endfor %}
-
-		</div>
 
 {% endblock %}

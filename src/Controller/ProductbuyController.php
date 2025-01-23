@@ -14,9 +14,7 @@ class ProductbuyController extends AbstractController
     #[Route('/productbuy', name: 'app_productbuy')]
 
     public function index(Request $request): Response{
-
-        $user = $this->getUser();
-        $form = $this->createForm(FormSellType::class, $user);
+        $form = $this->createForm(FormSellType::class);
         $form->handleRequest($request);
 
 
