@@ -113,13 +113,17 @@ flex-flow
   padding: 0;
   vertical-align: baseline;
   box-sizing: border-box;
-  font-family: Open sans-serif; 
+  font-family: Open sans-serif;
 
   /* !!! afin d'avoir un visuel sur la constuction de ma page ne pas oublier d'effacer >> */
   /* border: 1px solid; */
 
-  h1{
-text-transform: capitalize;
+  h1 {
+    text-transform: capitalize;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    text-decoration: underline;
   }
 
   h2 {
@@ -127,17 +131,14 @@ text-transform: capitalize;
     margin-top: 20px;
     margin-bottom: 40px;
     text-decoration: underline;
-
   }
 }
 
-.contenair{
+.contenair {
   margin-left: 50px;
-margin-right: 50px;
-margin-bottom: 50px;
+  margin-right: 50px;
+  margin-bottom: 50px;
 }
-
-
 
 /* iframe,
 img {
@@ -172,63 +173,62 @@ img {
 
 /* Conteneur pour le logo et la navigation */
 .logNav {
-  display: flex;  
+  display: flex;
   align-items: center;
   position: absolute;
   top: 20px;
   left: 0;
   right: 0;
   padding: 0 20px;
-  color: white; 
+  color: white;
   z-index: 10;
 }
 
 /* Logo */
-.logo{
-margin-right: 20px;
+.logo {
+  margin-right: 20px;
 }
 
 .logo img {
-  height: 150px; 
+  height: 150px;
 }
 
 /* Navigation */
 nav {
-  display: flex; 
-  gap: 20px; 
+  display: flex;
+  gap: 20px;
   flex-grow: 1;
 }
 
 ul {
-  display: flex; 
-  list-style: none; 
+  display: flex;
+  list-style: none;
   padding: 0;
   margin: 0;
 }
 
-a:hover {
+nav a:hover {
   /*Halo lumineux doux autour du lien*/
-/* box-shadow: 5px 2px 2px rgba(255, 255, 255, 0.8);  */
+  /* box-shadow: 5px 2px 2px rgba(255, 255, 255, 0.8);  */
 
-/*Zoom léger*/
+  /*Zoom léger*/
   transform: scale(1.2);
-
 }
 
-nav a{
-  text-decoration: none; 
+nav a {
+  text-decoration: none;
   color: white;
-  font-size: 18px; 
+  font-size: 18px;
   font-weight: bold;
 
   border-radius: 5px;
   /* padding: 10px 15px; */
-display: inline-block;
+  display: inline-block;
   transition: 0.4s ease, transform 0.4s ease;
 }
 
-.item li{
-    margin: 0 30px;
+.item li {
+  margin: 0 30px;
 }
 
 .account {
@@ -237,12 +237,12 @@ display: inline-block;
 
 .account ul {
   justify-content: end;
-  display: flex; 
+  display: flex;
   gap: 15px;
 }
 
 .account li {
- margin: 0 10px;
+  margin: 0 10px;
 }
 
 .account a {
@@ -250,20 +250,22 @@ display: inline-block;
 }
 
 .hero::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)); /* Dégradé */
-  z-index: 1; 
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)
+  ); /* Dégradé */
+  z-index: 1;
 }
 
 .header-content {
-  z-index: 2; 
+  z-index: 2;
 }
-
 
 /*************** END HEADER + NAV ***************/
 
@@ -296,9 +298,9 @@ display: inline-block;
 }
 
 .product {
-margin: auto;
- border: 1px solid black;
- border-radius: 10PX 10PX;
+  margin: auto;
+  border: 1px solid black;
+  border-radius: 10px 10px;
 }
 
 /* .prodImg {
@@ -329,37 +331,46 @@ h3 {
   justify-content: end;
 }
 
-
-
 /*************** END MAIN HOME***************/
 
-
 /*************** FORM ***************/
-.registerForm{
+.registerForm {
   height: 250px;
   width: 400px;
   margin: auto;
   border: 1px black;
   border-radius: 10px 10px;
   background-color: rgb(151, 151, 151);
-
 }
 
-.login{
-   height: 200px;
-  width: 300px; 
+.login {
+  height: 200px;
+  width: 300px;
 
-   border: 1px black;
-   border-radius: 15px 15px;
-margin: auto;
+  border: 1px black;
+  border-radius: 15px 15px;
+  margin: auto;
   background-color: rgb(151, 151, 151);
 }
 
+.formSell {
+  margin: auto;
+  height: 400px;
+  width: 500px;
+  border: 1px black;
+  border-radius: 20px 20px;
+  background-color: gray;
+}
 
-
+.formSell form {
+  align-items: center;
+  margin: auto;
+  justify-content: center;
+  text-align: center;
+  justify-content: space-between;
+}
 
 /*************** END FORM ***************/
-
 
 /*************** MAIN PRODUCT***************/
 
@@ -371,12 +382,10 @@ margin: auto;
 .productAdd {
   display: flex;
   justify-content: space-around;
-
 }
 
 .product {
-margin: auto;
- 
+  margin: auto;
 }
 
 .productImg {
@@ -385,7 +394,6 @@ margin: auto;
   border: 5px;
   border: 1px solid black;
   border-radius: 10px 10px 0 0;
-
 }
 
 .productImg img {
@@ -393,48 +401,55 @@ margin: auto;
   height: 302px;
   margin: auto;
   object-fit: contain;
-  
 }
 
 h3 {
   text-align: center;
+  margin-bottom: 10px;
 }
 
-.productInfo{
+.productInfo {
   border: 1px solid black;
-  border-radius:  0 0 10px 10px;
+  border-radius: 0 0 10px 10px;
   margin: auto;
 }
 
+.productInfo p {
+justify-content: space-between;
+}
 
 
-.productInfo a{
+
+
+.productInfo a {
   border: 1px black solid;
   border-radius: 5px;
-color: black;
+  color: black;
   margin-right: 20px;
 }
- 
 
-.productButton{
+.productButton {
+  margin-top: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .productButton a {
+  padding: 10px;
+  border-radius: 30px 30px;
 
-padding: 10px;
-border-radius: 30px 30px;
 }
 
 .productButton button {
-  padding: 10px;
-border-radius: 30px 30px;
-font-size:;
+
+  border-radius: 30px;
+  /* font-size:; */
+  background-color: gray;
+  :hover {
+    background-color:rgb(229, 229, 229) ;
+  }
 }
-
-
 
 .addBasket {
   padding: 5px;
@@ -443,28 +458,24 @@ font-size:;
   background-color: gray;
   color: white;
   font-weight: 700;
-  
 }
-
 
 /*************** END MAIN PRODUCT***************/
 
 /*************** PANIER ***************/
-.productCart{
+.productCart {
   border: 1px solid black;
   border-radius: 20px 20px;
-
   justify-content: space-between;
 }
 
-.productCart img{
-width: 249px;
-height: 210px;
-object-fit: contain;
-margin: 20px;
-border-radius: 10px 10px;
+.productCart img {
+  width: 249px;
+  height: 210px;
+  object-fit: contain;
+  margin: 20px;
+  border-radius: 10px 10px;
 }
-
 
 /*************** END PANIER ***************/
 
@@ -494,13 +505,10 @@ footer {
   }
 }
 
-.footLogo img{
+.footLogo img {
   width: 100px;
   height: 100px;
 }
-
-
-
 
 /*************** END FOOTER ***************/
 
@@ -531,4 +539,3 @@ footer {
 } */
 
 /*************** END MEDIAQUERY ***************/
-

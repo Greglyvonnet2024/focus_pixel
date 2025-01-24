@@ -28,7 +28,7 @@ class FormSellType extends AbstractType
                 ],
                 'multiple' => false,
                 'expanded' => true,
-                'label' => 'Catégories',
+                'label' => 'Etat',
             ])
             ->add('prix', NumberType::class)
             ->add('description', TextareaType::class)

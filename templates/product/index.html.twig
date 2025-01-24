@@ -27,9 +27,9 @@
 
 							<p><b>Prix:</b>{{ item.prix }}€</p>
 
-								<div class="productButon">
+								<div class="productButton">
 
-									<p><a href="{{path('app_description', {id : item.id})}}">Description</a></p>
+									<a href="{{path('app_description', {id : item.id})}}"><button>Description</button></a>
 
 									<button class="ajout" data-bouton='page-prod' data-id="{{item.id}}">Ajouter au panier</button>
 
@@ -41,7 +41,6 @@
 				{% endfor %}
 
 			</div>
-	
 	</main>
 
 
