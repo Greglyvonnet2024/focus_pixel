@@ -138,4 +138,24 @@ class ProductSell
 
         return $this;
     }
+
+ 
+
 }
+
+
+
+//      public function getTotalPrice(): float
+//     {
+//         return $this->product->getPrice() * $this->quantity;
+//     }
+
+
+// public function getTotalprice(): float{
+//         $total = 0;
+//         foreach($this -> prix as $prix){
+
+//         }
+//     }
+
+ 
