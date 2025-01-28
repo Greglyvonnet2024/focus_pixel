@@ -189,6 +189,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->productbuys;
     }
 
+
+
+
+
+
+
+
     public function addProductbuy(Productbuy $productbuy): static
     {
         if (!$this->productbuys->contains($productbuy)) {

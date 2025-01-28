@@ -60,6 +60,40 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+
+document.addEventListener("click", function (event) {
+
+   const prevBtn = document.querySelector(".prev-btn");
+   const nextBtn = document.querySelector(".next-btn");
+
+})
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const prevBtn = document.querySelector(".prev-btn");
+  const nextBtn = document.querySelector(".next-btn");
+
+  let index = 0;
+
+  prevBtn.addEventListener("click", () => {
+    index = index > 0 ? index - 1 : images.length - 1;
+    updateCarousel();
+  });
+
+  nextBtn.addEventListener("click", () => {
+    index = index < images.length - 1 ? index + 1 : 0;
+    updateCarousel();
+  });
+});
+
+
+
+
+
+
+
+
+
 // document.querySelector("add").addEventListener("click", function (event) {
 //   if (event.target.classList.contains("add")) {
 //     const ID = event.target.getAttribute("data-id");

@@ -10,18 +10,32 @@
 
     <h2>{{produit.marque}} {{produit.nom}}</h2>
 
-    <div class="carouselProd">
-
-
-        {# <button class="btn" id="prev"></button>
-        <button class="btn" id="next"></button> #}
-
-    </div>
-
         <p>{{produit.description}}</p>
 
         <button class='ajout' data-bouton='description' data-id='{{produit.id}}'>Ajouter au panier</button>
 
 </div>
+
+<div class="carousel">
+
+    <div class="carouselImg">
+    
+        {% for image in produit.img %}
+
+            <img src="{{ asset("/assets/img/" ~ item.img) }}" alt="{{item.nom}}">
+    
+        {% endfor %}
+
+</div>
+
+<button class='prev'><i class="fa-solid fa-chevron-left"></i></button>
+<button class='next'><i class="fa-solid fa-chevron-right"></i></button>
+
+
+
+
+</div>
+
+
 
 {% endblock %}
