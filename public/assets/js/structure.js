@@ -58,56 +58,38 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
   });
+
+// let slideIndex = 0; // Index de l'image actuelle
+//  const slides = document.querySelectorAll(".slide");
+
+//  function showSlide(index) {
+//    // Cache toutes les images
+//    slides.forEach((slide) => (slide.style.display = "none"));
+
+//    // Affiche l'image correspondante
+//    slides[index].style.display = "block";
+//  }
+
+//  function changeSlide(step) {
+//    slideIndex += step;
+
+//    // Si on dépasse la dernière image, on revient à la première
+//    if (slideIndex >= slides.length) slideIndex = 0;
+
+//    // Si on recule avant la première image, on revient à la dernière
+//    if (slideIndex < 0) slideIndex = slides.length - 1;
+
+//    showSlide(slideIndex);
+//  }
+
+//  // Quand la page charge, on affiche la première image
+//  document.addEventListener("DOMContentLoaded", () => {
+//    showSlide(slideIndex);
+//  });
+
+
+
+
 });
 
-
-document.addEventListener("click", function (event) {
-
-   const prevBtn = document.querySelector(".prev-btn");
-   const nextBtn = document.querySelector(".next-btn");
-
-})
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  const prevBtn = document.querySelector(".prev-btn");
-  const nextBtn = document.querySelector(".next-btn");
-
-  let index = 0;
-
-  prevBtn.addEventListener("click", () => {
-    index = index > 0 ? index - 1 : images.length - 1;
-    updateCarousel();
-  });
-
-  nextBtn.addEventListener("click", () => {
-    index = index < images.length - 1 ? index + 1 : 0;
-    updateCarousel();
-  });
-});
-
-
-
-
-
-
-
-
-
-// document.querySelector("add").addEventListener("click", function (event) {
-//   if (event.target.classList.contains("add")) {
-//     const ID = event.target.getAttribute("data-id");
-//     fetch("/add", {
-//       method: "post",
-//       headers: { "Content-Type": "application/json" },
-//       body: JSON.stringify({ id: ID }),
-//     })
-//       .then((result) => result.json())
-//       .then((result) => {
-//         if (result.success) {
-//           mettreAJourPanier(result.cart); // Mise à jour dynamique
-//         }
-//       })
-//       .catch((error) => console.log(error));
-//   }
-// });
+ 

@@ -9,10 +9,40 @@
   <main class="contenair">
     <h1>{{ controller_name }}</h1>
 
-    <div class="cart">
+      <table class="table">
+
+        <thead>
+
+          <tr>
+            <th>Produits</th>
+            {# <th>Image</th> #}
+            <th>Prix</th>
+            <th>Total</th>
+            <th>Action</th> 
+          </tr>
+      </thead>
+
+      <tbody>
+        {% for item in product %}
+          <tr>
+            <td>{{ item.marque }} {{ item.nom }}</td>
+            {# <td><img src="{{ asset('assets/img/' ~ item.img) }}" alt="{{ item.nom }}" /></td> #}
+            <td>{{ item.prix }}</td>
+            <td>{{total}}</td>
+            <td><a href="#" class="btn btn-danger btn-sm supp" data-id="{{ item.id }}"><i class="fas fa-trash"></i></a></td>
+          </tr>
+          <tr><td>{{total}}</td></tr>
+
+        {% endfor %}
+      </tbody>
+      
+      
+      </table>
+
+    {# <div class="cart">
       {% for item in product %}
         <div class="productCart">
-          {# ~ = concatenation : resultat = "assets/img/optic.png" #}
+          ~ = concatenation : resultat = "assets/img/optic.png"
 
           <img src="{{ asset('assets/img/' ~ item.img) }}" alt="{{ item.nom }}" />
 
@@ -28,6 +58,8 @@
       {% endfor %}
     </div>
 
-    <div class="payement"></div>
+    <div class=""></div> #}
+
   </main>
+
 {% endblock %}

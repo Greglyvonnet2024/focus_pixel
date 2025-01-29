@@ -6,35 +6,25 @@
 
 <h1 class="descriptTitle">Description</h1>
 
-<div class="descript">
+    <div class="descript">
 
-    <h2>{{produit.marque}} {{produit.nom}}</h2>
+        <h2>{{produit.marque}} {{produit.nom}}</h2>
 
-        <p>{{produit.description}}</p>
+            <p>{{produit.description}}</p>
 
-        <button class='ajout' data-bouton='description' data-id='{{produit.id}}'>Ajouter au panier</button>
+            <button class='ajout' data-bouton='description' data-id='{{produit.id}}'>Ajouter au panier</button>
 
-</div>
+    </div>
 
-<div class="carousel">
 
-    <div class="carouselImg">
+    {# <div class="slideContenair">
     
-        {% for image in produit.img %}
-
-            <img src="{{ asset("/assets/img/" ~ item.img) }}" alt="{{item.nom}}">
-    
-        {% endfor %}
-
-</div>
-
-<button class='prev'><i class="fa-solid fa-chevron-left"></i></button>
-<button class='next'><i class="fa-solid fa-chevron-right"></i></button>
+    </div> #}
 
 
 
 
-</div>
+
 
 
 

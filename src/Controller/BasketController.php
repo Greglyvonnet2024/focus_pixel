@@ -17,11 +17,22 @@ class BasketController extends AbstractController
     {
 
         $product = $sessionInterface->get('cart', []);
+        
+        $total = 0;
+
+        foreach ($product as $p){
+            $total += $p->getPrix();
+        }
+        // dd($total);
+
+
         return $this->render('basket/index.html.twig', [
             'controller_name' => 'panier',
-            'product' => $product
+            'product' => $product,
+            'total' => $total
         ]);
     }
+
 
     #[Route('/add', name: 'app_add')]
     public function add(Request $request, ProductSellRepository $productSellRepository, SessionInterface $sessionInterface): JsonResponse
@@ -30,7 +41,9 @@ class BasketController extends AbstractController
         $id = $data['id'];
         $product = $productSellRepository->find($id);
         $cart = $sessionInterface->get('cart', []);
+
         foreach ($cart as $c) {
+            
             if ($c->getId() == $product->getId()) {
                 return new JsonResponse(['error_doublons' => 'le produit est déja dans votre panier']);
             }
