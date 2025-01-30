@@ -51,6 +51,8 @@ document.addEventListener("DOMContentLoaded", function () {
           if (result.success) {
             this.parentElement.parentElement.remove();
             document.querySelector("#cart_nb").textContent = result.numb_cart;
+            console.log(result.total)
+            document.querySelector("#totalPanier").textContent = result.total;
           }
         })
         .catch((error) => {

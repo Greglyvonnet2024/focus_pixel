@@ -65,4 +65,12 @@
       </div>
     </div>
   </div>
+  {% for label, messages in app.flashes %}
+    <div class="flash flash-{{ label }}">
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+{% endfor %}
+
 </header>

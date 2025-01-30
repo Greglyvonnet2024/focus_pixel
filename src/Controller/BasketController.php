@@ -15,22 +15,27 @@ class BasketController extends AbstractController
     #[Route('/basket', name: 'app_basket')]
     public function index(SessionInterface $sessionInterface): Response
     {
-
         $product = $sessionInterface->get('cart', []);
         
         $total = 0;
 
+        if (empty($product)) {
+            $this->addFlash('message', 'Votre panier est vide');
+        }
+
         foreach ($product as $p){
             $total += $p->getPrix();
         }
-        // dd($total);
+
 
 
         return $this->render('basket/index.html.twig', [
             'controller_name' => 'panier',
             'product' => $product,
             'total' => $total
-        ]);
+        ]
+    
+    );
     }
 
 
@@ -63,6 +68,9 @@ class BasketController extends AbstractController
 public function supp(Request $request, SessionInterface $sessionInterface){
         $data = json_decode($request->getContent(), true);
         
+        $total=0;
+
+
         $cart = $sessionInterface->get('cart', []);
         // dd($cart);
         foreach ($cart as $clef =>$c) {
@@ -73,11 +81,16 @@ public function supp(Request $request, SessionInterface $sessionInterface){
         }
         array_values($cart);
 
+        foreach ($cart as $p){
+            $total += $p->getPrix();
+        }
+
         $sessionInterface->set('cart', $cart);
         $numb = count($cart);
         $sessionInterface->set('numb_item', $numb);
 
-        return new JsonResponse(['success' => 'Le produit a bien été supprimé de votre panier', 'numb_cart'=>$numb]);
+
+        return new JsonResponse(['success' => 'Le produit a bien été supprimé de votre panier', 'numb_cart'=>$numb, 'total'=>$total]);
 }
 
 }

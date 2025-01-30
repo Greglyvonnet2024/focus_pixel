@@ -5,61 +5,50 @@
 {% endblock %}
 
 {% block body %}
-
   <main class="contenair">
     <h1>{{ controller_name }}</h1>
 
+    <div class="tableContenair">
       <table class="table">
-
         <thead>
-
           <tr>
             <th>Produits</th>
-            {# <th>Image</th> #}
+            <th>Image</th>
             <th>Prix</th>
-            <th>Total</th>
-            <th>Action</th> 
+            {# <th>Total</th> #}
+            <th>Action</th>
           </tr>
-      </thead>
+        </thead>
 
-      <tbody>
-        {% for item in product %}
-          <tr>
-            <td>{{ item.marque }} {{ item.nom }}</td>
-            {# <td><img src="{{ asset('assets/img/' ~ item.img) }}" alt="{{ item.nom }}" /></td> #}
-            <td>{{ item.prix }}</td>
-            <td>{{total}}</td>
-            <td><a href="#" class="btn btn-danger btn-sm supp" data-id="{{ item.id }}"><i class="fas fa-trash"></i></a></td>
-          </tr>
-          <tr><td>{{total}}</td></tr>
+        <tbody>
+          {% for item in product %}
+            <tr>
+              <td>{{ item.marque }} {{ item.nom }}</td>
 
-        {% endfor %}
-      </tbody>
-      
-      
+              <td>
+                <img src="{{ asset('assets/img/' ~ item.img) }}" alt="{{ item.nom }}" />
+              </td>
+              <td>{{ item.prix }}</td>
+              {# <td>{{ total }}</td> #}
+              <td>
+                <a href="#" class="btn btn-danger btn-sm supp" data-id="{{ item.id }}"><i class="fas fa-trash"></i></a>
+              </td>
+            </tr>
+          
+            
+            
+          {% endfor %}
+  
+
+        </tbody>
       </table>
+<div>le Total des articles est de:<span id='totalPanier'>{{ total }}</span> €</div>
+<button class"bt" type="submit">Valider</button>
 
-    {# <div class="cart">
-      {% for item in product %}
-        <div class="productCart">
-          ~ = concatenation : resultat = "assets/img/optic.png"
+      {# <div class=""></div> #}
 
-          <img src="{{ asset('assets/img/' ~ item.img) }}" alt="{{ item.nom }}" />
 
-          <div class="infos">
-            <h4>{{ item.marque }} {{ item.nom }}</h4>
 
-            <p>quantité:</p>
-            <p>prix: {{ item.prix }}</p>
-
-            <a href="#" class="btn btn-danger btn-sm supp" data-id="{{ item.id }}"><i class="fas fa-trash"></i></a>
-          </div>
-        </div>
-      {% endfor %}
     </div>
-
-    <div class=""></div> #}
-
   </main>
-
 {% endblock %}

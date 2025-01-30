@@ -512,31 +512,22 @@ justify-content: space-between;
 
 
 /*************** PANIER ***************/
-/* .productCart {
+
+.tableContenair{
+  background-color: grey;
   border: 1px solid black;
-  border-radius: 20px 20px;
-  justify-content: space-between;
+  border-radius: 15px;
+  
+    .table{
+
+        tbody td img {
+          object-fit: contain;
+          height: 70px;
+          width: 50px; 
+          align-items: center;
+        }
+    }
 }
-
-.productCart img {
-  width: 249px;
-  height: 210px;
-  object-fit: contain;
-  margin: 20px;
-  border-radius: 10px 10px;
-} */
-
-.table{
- 
- 
- td {
-object-fit: contain;
-  height: 70px;
-width: 70px; 
-}
-
-}
-
 
 /*************** END PANIER ***************/
 
