@@ -23,14 +23,14 @@
         <tbody>
           {% for item in product %}
             <tr>
-              <td>{{ item.marque }} {{ item.nom }}</td>
+              <td classe="product">{{ item.marque }} {{ item.nom }}</td>
 
-              <td>
+              <td classe="imgs">
                 <img src="{{ asset('assets/img/' ~ item.img) }}" alt="{{ item.nom }}" />
               </td>
-              <td>{{ item.prix }}</td>
+              <td classe="price">{{ item.prix }}</td>
               {# <td>{{ total }}</td> #}
-              <td>
+              <td classe="trash">
                 <a href="#" class="btn btn-danger btn-sm supp" data-id="{{ item.id }}"><i class="fas fa-trash"></i></a>
               </td>
             </tr>
@@ -42,7 +42,7 @@
 
         </tbody>
       </table>
-<div>le Total des articles est de:<span id='totalPanier'>{{ total }}</span> €</div>
+<div><h4>Le total des articles est de:</h4><span id='totalPanier'>{{ total }}</span> €</div>
 <button class"bt" type="submit">Valider</button>
 
       {# <div class=""></div> #}

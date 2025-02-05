@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\OrderRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: OrderRepository::class)]
@@ -27,9 +28,31 @@ class Order
     #[ORM\OneToMany(targetEntity: ProductBuy::class, mappedBy: 'command')]
     private Collection $productbuys;
 
+
+    #[ORM\Column(length: 255)]
+    private ?string $statut = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $Date = null;
+
+    #[ORM\ManyToOne(inversedBy: 'orders')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user = null;
+
+    #[ORM\ManyToOne(inversedBy: 'orders')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?ProductSell $total = null;
+
+    /**
+     * @var Collection<int, ProductSell>
+     */
+    #[ORM\OneToMany(targetEntity: ProductSell::class, mappedBy: 'command')]
+    private Collection $productSells;
+
     public function __construct()
     {
         $this->productbuys = new ArrayCollection();
+        $this->productSells = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -41,19 +64,16 @@ class Order
     {
         return $this->prix;
     }
-
     public function setPrix(float $prix): static
     {
         $this->prix = $prix;
 
         return $this;
     }
-
     public function getQuantity(): ?float
     {
         return $this->quantity;
     }
-
     public function setQuantity(float $quantity): static
     {
         $this->quantity = $quantity;
@@ -85,6 +105,86 @@ class Order
             // set the owning side to null (unless already changed)
             if ($productbuy->getCommand() === $this) {
                 $productbuy->setCommand(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getStatut(): ?string
+    {
+        return $this->statut;
+    }
+
+    public function setStatut(string $statut): static
+    {
+        $this->statut = $statut;
+
+        return $this;
+    }
+
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->Date;
+    }
+
+    public function setDate(\DateTimeInterface $Date): static
+    {
+        $this->Date = $Date;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+
+    public function getTotal(): ?ProductSell
+    {
+        return $this->total;
+    }
+
+    public function setTotal(?ProductSell $total): static
+    {
+        $this->total = $total;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ProductSell>
+     */
+    public function getProductSells(): Collection
+    {
+        return $this->productSells;
+    }
+
+    public function addProductSell(ProductSell $productSell): static
+    {
+        if (!$this->productSells->contains($productSell)) {
+            $this->productSells->add($productSell);
+            $productSell->setCommand($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProductSell(ProductSell $productSell): static
+    {
+        if ($this->productSells->removeElement($productSell)) {
+            // set the owning side to null (unless already changed)
+            if ($productSell->getCommand() === $this) {
+                $productSell->setCommand(null);
             }
         }
 

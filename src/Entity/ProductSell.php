@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ProductSellRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -37,6 +39,20 @@ class ProductSell
 
     #[ORM\Column(length: 255)]
     private ?string $category = null;
+
+    /**
+     * @var Collection<int, Order>
+     */
+    #[ORM\OneToMany(targetEntity: Order::class, mappedBy: 'total')]
+    private Collection $orders;
+
+    #[ORM\ManyToOne(inversedBy: 'productSells')]
+    private ?Order $command = null;
+
+    public function __construct()
+    {
+        $this->orders = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -139,23 +155,50 @@ class ProductSell
         return $this;
     }
 
- 
+    /**
+     * @return Collection<int, Order>
+     */
+    public function getOrders(): Collection
+    {
+        return $this->orders;
+    }
 
+    public function addOrder(Order $order): static
+    {
+        if (!$this->orders->contains($order)) {
+            $this->orders->add($order);
+            $order->setTotal($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrder(Order $order): static
+    {
+        if ($this->orders->removeElement($order)) {
+            // set the owning side to null (unless already changed)
+            if ($order->getTotal() === $this) {
+                $order->setTotal(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getCommand(): ?Order
+    {
+        return $this->command;
+    }
+
+    public function setCommand(?Order $command): static
+    {
+        $this->command = $command;
+
+        return $this;
+    }
+
+ 
 }
 
-
-
-//      public function getTotalPrice(): float
-//     {
-//         return $this->product->getPrice() * $this->quantity;
-//     }
-
-
-// public function getTotalprice(): float{
-//         $total = 0;
-//         foreach($this -> prix as $prix){
-
-//         }
-//     }
 
  

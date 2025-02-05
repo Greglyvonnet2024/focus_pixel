@@ -2,8 +2,7 @@
 
 namespace App\Controller;
 
-
-use app\Form\FormSellType;
+use App\Form\FormSellType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,16 +16,9 @@ class ProductbuyController extends AbstractController
         $form = $this->createForm(FormSellType::class);
         $form->handleRequest($request);
 
-
-
         return $this->render('productbuy/index.html.twig', [
             'controller_name' => 'ProductbuyController',
             'form'=>$form->createView()
-        ]);
-
-
-
-
-        
+        ]);        
     }
 }
