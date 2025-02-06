@@ -61,6 +61,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+const VALID = document.querySelectorAll(".commandValid");
+  bouton.addEventListener("click", function (event) {
+        let productIds = [];
+  })
+
+
+  
 // let slideIndex = 0; // Index de l'image actuelle
 //  const slides = document.querySelectorAll(".slide");
 

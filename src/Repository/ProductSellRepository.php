@@ -31,4 +31,15 @@ class ProductSellRepository extends ServiceEntityRepository
         ;
     }
 
+
+
+    // public function findAvailableProducts(): array
+    // {
+    //     return $this->createQueryBuilder('p')
+    //     ->where('p.isSold = false')
+    //     ->getQuery()
+    //         ->getResult();
+    // }
+
+
 }

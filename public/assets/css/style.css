@@ -276,6 +276,7 @@ nav a {
   width: 300px;
   border-radius: 10px 10px;
   justify-content: space-between;
+
 }
 
 /*************** END LOGIN ***************/
@@ -286,6 +287,7 @@ nav a {
   width: 300px;
   border-radius: 10px 10px;
   justify-content: space-between;
+
 }
 
 /*************** END REGISTRATION ***************/
@@ -351,6 +353,7 @@ h3 {
   border-radius: 15px 15px;
   margin: auto;
   background-color: rgb(151, 151, 151);
+  
 }
 
 .formSell {
@@ -594,6 +597,10 @@ footer {
   header h2 {
     font-family: "Roboto-Black";
   }
-} */
+} 
 
 /*************** END MEDIAQUERY ***************/
+
+
+/*************** TENTATIVE AMELIORATION FORM***************/
+
