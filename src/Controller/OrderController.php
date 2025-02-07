@@ -97,7 +97,7 @@ class OrderController extends AbstractController
         return $this->json([
             'message' => 'Commande créé avec succès',
             'order' => $order->getId(),
-            'total' => $order->getTotal(),
+            'total' => $order->getPrix(),
         ]);
 
 

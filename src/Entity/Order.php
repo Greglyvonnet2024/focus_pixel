@@ -9,6 +9,8 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: OrderRepository::class)]
+
+#[ORM\Table(name: 'orders')] 
 class Order
 {
     #[ORM\Id]
@@ -39,20 +41,17 @@ class Order
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
-    #[ORM\ManyToOne(inversedBy: 'orders')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?ProductSell $total = null;
-
     /**
      * @var Collection<int, ProductSell>
      */
     #[ORM\OneToMany(targetEntity: ProductSell::class, mappedBy: 'command')]
-    private Collection $productSells;
+    #[ORM\JoinColumn(nullable: true)]
+    private Collection $productSell;
 
     public function __construct()
     {
         $this->productbuys = new ArrayCollection();
-        $this->productSells = new ArrayCollection();
+        $this->productSell = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -74,7 +73,7 @@ class Order
     {
         return $this->quantity;
     }
-    public function setQuantity(float $quantity): static
+    public function setQuantity(float $quantity=1): static
     {
         $this->quantity = $quantity;
 
@@ -116,7 +115,7 @@ class Order
         return $this->statut;
     }
 
-    public function setStatut(string $statut): static
+    public function setStatut(string $statut="confirmé"): static
     {
         $this->statut = $statut;
 
@@ -129,7 +128,7 @@ class Order
         return $this->Date;
     }
 
-    public function setDate(\DateTimeInterface $Date): static
+    public function setDate(\DateTimeInterface $Date=new \DateTime()): static
     {
         $this->Date = $Date;
 
@@ -148,31 +147,18 @@ class Order
         return $this;
     }
 
-
-    public function getTotal(): ?ProductSell
-    {
-        return $this->total;
-    }
-
-    public function setTotal(?ProductSell $total): static
-    {
-        $this->total = $total;
-
-        return $this;
-    }
-
     /**
      * @return Collection<int, ProductSell>
      */
-    public function getProductSells(): Collection
+    public function getProductSell(): Collection
     {
-        return $this->productSells;
+        return $this->productSell;
     }
 
     public function addProductSell(ProductSell $productSell): static
     {
-        if (!$this->productSells->contains($productSell)) {
-            $this->productSells->add($productSell);
+        if (!$this->productSell->contains($productSell)) {
+            $this->productSell->add($productSell);
             $productSell->setCommand($this);
         }
 
@@ -181,7 +167,7 @@ class Order
 
     public function removeProductSell(ProductSell $productSell): static
     {
-        if ($this->productSells->removeElement($productSell)) {
+        if ($this->productSell->removeElement($productSell)) {
             // set the owning side to null (unless already changed)
             if ($productSell->getCommand() === $this) {
                 $productSell->setCommand(null);

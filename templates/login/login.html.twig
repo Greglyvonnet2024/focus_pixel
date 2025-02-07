@@ -8,6 +8,12 @@
 
   <main class="contenair">
   
+{% for messages in app.flashes("error") %}
+
+<h3>{{messages}}</h3>
+  
+{% endfor %}
+
     <div class="login">
       <form class="log" method="post">
         {% if error %}
