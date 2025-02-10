@@ -41,8 +41,21 @@ class ProductSell
     private ?string $category = null;
 
     #[ORM\ManyToOne(inversedBy: 'productSell')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Order $command = null;
+    
+
+    /**
+     * @var Collection<int, Image>
+     */
+    #[ORM\OneToMany(targetEntity: Image::class, mappedBy: 'productSell', cascade:['persist'])]
+    private Collection $images;
+
+    public function __construct()
+    {
+        $this->images = new ArrayCollection();
+    }
+
 
     public function getId(): ?int
     {
@@ -153,6 +166,36 @@ class ProductSell
     public function setCommand(?Order $command): static
     {
         $this->command = $command;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Image>
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(Image $image): static
+    {
+        if (!$this->images->contains($image)) {
+            $this->images->add($image);
+            $image->setProductSell($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Image $image): static
+    {
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getProductSell() === $this) {
+                $image->setProductSell(null);
+            }
+        }
 
         return $this;
     }

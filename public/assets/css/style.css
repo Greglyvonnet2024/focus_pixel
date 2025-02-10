@@ -326,7 +326,7 @@ h3 {
 .addBasket {
   padding: 5px;
   margin: 0 5px;
-  border-radius: 5px 5px 5px;
+  /* border-radius: 5px 5px 5px; */
   background-color: gray;
   color: white;
   font-weight: 700;

@@ -2,14 +2,17 @@
 
 namespace App\Controller\Admin;
 
+use App\Form\ImagesType;
 use App\Entity\ProductSell;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+
 
 class ProductSellCrudController extends AbstractCrudController
 {
@@ -31,7 +34,16 @@ class ProductSellCrudController extends AbstractCrudController
             ->setUploadDir('public/assets/img')
             ->setRequired(true),
            NumberField::new('Stock'),
-           TextField::new('Category')
+           TextField::new('Category'),
+           CollectionField::new('Images')
+            ->setEntryType(ImagesType::class)
+                ->setFormTypeOptions([
+                    'by_reference' => false,
+
+                ])
+                ->setEntryIsComplex(true)
+                ->showEntryLabel(false)
+                ->onlyOnForms(),
         ];
     }
 
