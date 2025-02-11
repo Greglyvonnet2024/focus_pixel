@@ -128,35 +128,15 @@ flex-flow
 
   h2 {
     text-transform: capitalize;
-    margin-top: 20px;
-    margin-bottom: 40px;
     text-decoration: underline;
   }
-}
 
 .contenair {
-  margin-left: 50px;
-  margin-right: 50px;
-  margin-bottom: 50px;
+  margin: 50px 50px 50px 50px;
 }
 
-/* iframe,
-img {
-  width: 100%;
-  display: block;
-} */
+}
 
-/* body {
-  font-family:Arial;
-    background-image: url("../img/fond.png");
-} */
-
-/* .container { */
-/* width:1000px; */
-/*margin:0 auto;pour centrer la page dans le navigateurs*/
-/* box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    background-color: #fff; */
-/* }  */
 
 /*************** END GLOBAL ***************/
 
@@ -167,7 +147,7 @@ img {
   background-image: url("../img/diaph.jpg");
   background-size: cover;
   background-position: center;
-  height: 80vh;
+  height: 70vh;
   position: relative;
 }
 
@@ -220,9 +200,7 @@ nav a {
   color: white;
   font-size: 18px;
   font-weight: bold;
-
   border-radius: 5px;
-  /* padding: 10px 15px; */
   display: inline-block;
   transition: 0.4s ease, transform 0.4s ease;
 }
@@ -305,15 +283,11 @@ nav a {
   border-radius: 10px 10px;
 }
 
-/* .prodImg {
-  width: 520px;
-  height: 550px;
-  border: 5px;
-} */
-
 .prodImg img {
+
   width: 486px;
   height: 302px;
+  
   margin: auto;
   object-fit: contain;
 }
@@ -323,11 +297,16 @@ h3 {
   margin-bottom: 10px;
 }
 
+.link button{
+  display: flex;
+  justify-content: space-between;
+}
+
+
 .addBasket {
   padding: 5px;
   margin: 0 5px;
-  /* border-radius: 5px 5px 5px; */
-  background-color: gray;
+  background-color: rgba(38, 210, 240, 0.992);
   color: white;
   font-weight: 700;
   justify-content: end;
@@ -441,72 +420,56 @@ h3 {
 }
 
 .productButton button {
-  border-radius: 30px;
-  /* font-size:; */
-  background-color: gray;
+  border-radius: 10px 10px;
+ background-color: rgba(106, 24, 207, 0.992);
+ color: white;
+ font-weight: 700;
   :hover {
-    background-color: rgb(229, 229, 229);
+    background-color: rgba(38, 210, 240, 0.992);
   }
 }
 
 .addBasket {
   padding: 5px;
   margin: 0 5px;
-  border-radius: 5px 5px 5px;
-  background-color: gray;
+  border-radius: 10px 10px;
+  background-color: rgba(106, 24, 207, 0.992);
   color: white;
   font-weight: 700;
 }
 
+.prodAdd{
+  margin-top: 40px;
+  
+}
+
+
 /*************** END MAIN PRODUCT***************/
 
-/*************** SLIDER PRODUCT DESCRIPTION ***************/
+/***************  PRODUCT DESCRIPTION & SLIDER***************/
 
-/* .slideshow-container {
-    position: relative;
-    max-width: 600px; 
-    margin: auto;
-    overflow: hidden;
+.alldetails{
+display: flex;
+
 }
 
-.slide {
-    display: none; 
-    text-align: center;
-}
-
-.slide img {
-    width: 100%;
-    max-height: 400px;
-    object-fit: cover;
-    border-radius: 10px;
+.descript{
+  border: 1px black solid;
 }
 
 
-.prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 20px;
+#carouselExample{
+height: 400px;
+width: 400px;
+
 }
 
-.prev {
-    left: 10px;
-}
 
-.next {
-    right: 10px;
-}
 
-.prev:hover, .next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-} */
 
-/*************** SLIDER PRODUCT DESCRIPTION ***************/
+
+
+/***************  PRODUCT DESCRIPTION & SLIDER***************/
 
 /*************** PANIER ***************/
 
@@ -532,9 +495,7 @@ h3 {
       width: 400px;
     }
 
-    /* #totalPanier{
-
-    } */
+  
   }
 }
 

@@ -61,45 +61,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // const VALID = document.querySelector(".commandValid");
-  // if (VALID) {
-  //   bouton.addEventListener("click", function (event) {
-  //     let productIds = [];
-  //   })
-
-  // }
-  
-  
-
-// let slideIndex = 0; // Index de l'image actuelle
-//  const slides = document.querySelectorAll(".slide");
-
-//  function showSlide(index) {
-//    // Cache toutes les images
-//    slides.forEach((slide) => (slide.style.display = "none"));
-
-//    // Affiche l'image correspondante
-//    slides[index].style.display = "block";
-//  }
-
-//  function changeSlide(step) {
-//    slideIndex += step;
-
-//    // Si on dépasse la dernière image, on revient à la première
-//    if (slideIndex >= slides.length) slideIndex = 0;
-
-//    // Si on recule avant la première image, on revient à la dernière
-//    if (slideIndex < 0) slideIndex = slides.length - 1;
-
-//    showSlide(slideIndex);
-//  }
-
-//  // Quand la page charge, on affiche la première image
-//  document.addEventListener("DOMContentLoaded", () => {
-//    showSlide(slideIndex);
-//  });
-
-
 
 
 });

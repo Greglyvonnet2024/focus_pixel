@@ -1,7 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Bienvenue sur focus pixel{% endblock %}
-
 {% block body %}
 
 <main class="contenair">
@@ -14,18 +12,18 @@
     
     	<h2>Produits récemment ajoutés :</h2>
 
-{# prodAdd est anciennement "productAdd" #}
+			{# prodAdd est anciennement "productAdd" #}
         	<div class="prodAdd">
 				{% for item in products %}
 
 					<div class="product">
 
-{# prodImg est anciennement "productImg" #}
+						{# prodImg est anciennement "productImg" #}
 						<div class="prodImg">
 							<img src="{{ asset("/assets/img/" ~ item.img) }}" alt="{{item.nom}}">
 						</div>
 
-{# prodInfo est anciennement "productInfo" #}
+							{# prodInfo est anciennement "productInfo" #}
 							<div class="prodInfo">
 
 								<h3>{{ item.marque }} {{ item.nom }}</h3>
@@ -33,9 +31,15 @@
 								<p>Etat physique: {{item.etat}}</p>
 
 								<p>Prix:{{ item.prix }}€</p>
-								<p><a href="{{path('app_description', {id : item.id})}}">Description</a></p>
 
-								<button class="addBasket ajout" data-bouton="page-prod" data-id="{{item.id}}">Ajouter au panier</button>
+									<div class="link">
+										{# <p><a href="{{path('app_description', {id : item.id})}}">En savoir plus</a></p> #}
+
+										<button><a href="{{path('app_description', {id : item.id})}}">En savoir plus</a></button>
+
+										<button class="addBasket ajout" data-bouton="page-prod" data-id="{{item.id}}">Ajouter au panier</button>
+									</div>
+
 							</div>
 					
 					</div>

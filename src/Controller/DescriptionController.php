@@ -14,7 +14,6 @@ class DescriptionController extends AbstractController
     {
         $produit = $productSellRepository->find($id);
         
-         
         
         return $this->render('description/index.html.twig', [
             'controller_name' => 'DescriptionController',
