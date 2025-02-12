@@ -8,44 +8,45 @@
 
 	<main class="contenair">
 
-		<h1 class="titlePage">{{titre}}</h1>
+		<div class="productSell">
 
-			<div class="productSell">
+			<h2 class="titlePage">{{titre}}</h2>	
 
-				{% for item in products %}
+				<div class="prodAdd">
 
-					<div>
-						<div class="productImg">
-							<img src="{{ asset("/assets/img/" ~ item.img) }}" alt="{{item.nom}}">
-						</div>
+						<div class="product">
+							{% for item in products %}
 
-						<div class="productInfo">
+								<div class="prodImg">
 
-							<h3>{{ item.marque }}, {{ item.nom }}</h3>
+									<img src="{{ asset("/assets/img/" ~ item.img) }}" alt="{{item.nom}}">
 
-							<p><b>Etat:</b>{{item.etat}}</p>
+								</div>
 
-							<p><b>Prix:</b>{{ item.prix }}€</p>
+								<div class="prodInfo">
 
-								<div class="productButton">
+									<h3>{{ item.marque }}, {{ item.nom }}</h3>
+									<p>Condition physique: <b>{{item.etat}}</b></p>
+									<span>{{ item.prix }}€</span>
 
-									<a href="{{path('app_description', {id : item.id})}}"><button>Description</button></a>
+								</div>
 
+								<div class="link">
+
+									<button><a href="{{path('app_description', {id : item.id})}}">En savoir plus</a></button>
 
 									{# Voir pour activer le bouton favoris #}
 
 									{# <button class="btn shadow-1 btn-small btn-circle primary"><span class="iconify-inline" data-icon="mdi:thumb-up"></span></button> #}
 
-									<button class="ajout" data-bouton='page-prod' data-id="{{item.id}}">Ajouter au panier</button>
+									<button class="addBasket" data-bouton='page-prod' data-id="{{item.id}}">Ajouter au panier</button>
 
 								</div>
+
+							{% endfor %}
 						</div>
-
-					</div>
-
-				{% endfor %}
-
-			</div>
+				</div>
+		</div>
 	</main>
 
 

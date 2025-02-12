@@ -14,8 +14,8 @@
 
 			{# prodAdd est anciennement "productAdd" #}
         	<div class="prodAdd">
+				
 				{% for item in products %}
-
 					<div class="product">
 
 						{# prodImg est anciennement "productImg" #}
@@ -27,21 +27,19 @@
 							<div class="prodInfo">
 
 								<h3>{{ item.marque }} {{ item.nom }}</h3>
+								<p>Condition physique: <b>{{item.etat}}</b></p>
+								<span>{{ item.prix }}€</span>
+								
+							</div>
 
-								<p>Etat physique: {{item.etat}}</p>
+							<div class="link">
 
-								<p>Prix:{{ item.prix }}€</p>
+								<button><a href="{{path('app_description', {id : item.id})}}">En savoir plus</a></button>
 
-									<div class="link">
-										{# <p><a href="{{path('app_description', {id : item.id})}}">En savoir plus</a></p> #}
-
-										<button><a href="{{path('app_description', {id : item.id})}}">En savoir plus</a></button>
-
-										<button class="addBasket ajout" data-bouton="page-prod" data-id="{{item.id}}">Ajouter au panier</button>
-									</div>
+								<button class="addBasket" data-bouton="page-prod" data-id="{{item.id}}">Ajouter au panier</button>
 
 							</div>
-					
+
 					</div>
 
 				{% endfor %}
