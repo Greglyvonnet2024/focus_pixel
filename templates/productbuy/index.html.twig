@@ -6,14 +6,20 @@
 
 <div class="contenair">
 
-<h1>Vente de vos articles</h1>
+    
 
     <div class="formSell">
-        {{form_start(form)}}
-        {{form_widget(form)}} 
-        {{form_end(form)}}
+        <div class="sell">
 
+            <h1>Vente de vos articles</h1>
 
+            {{form_start(form)}}
+            {{form_widget(form)}} 
+            {{form_end(form)}}
+
+            <button type="submit" class="sub">Estimation</button>
+            {{ form_end(form) }}
+        </div>
     </div>
 
 </div>

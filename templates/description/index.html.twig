@@ -7,43 +7,46 @@
 
   <h1 class="descriptTitle">Description</h1>
 
-<div class="alldetails">
-<div id="carouselExample" class="carousel slide">
-  <div class="carousel-inner">
+    <div class="alldetails">
 
-    <div class="carousel-item active">
-      <img src="{{asset("/assets/img/"~produit.img)}}" class="d-block w-100" alt="...">
-    </div>
+      <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
 
-    {% for item in produit.images %}
+          <div class="carousel-item active">
+            <img src="{{asset("/assets/img/"~produit.img)}}" class="d-block w-100" alt="...">
+          </div>
 
-    <div class="carousel-item">
-        
-        <img src="{{asset("/assets/img/"~ item.images)}}" class="d-block w-100" alt="...">
-    
-    </div>
-    {% endfor %}
+          {% for item in produit.images %}
 
+          <div class="carousel-item">
+            <img src="{{asset("/assets/img/"~ item.images)}}" class="d-block w-100" alt="...">   
+          </div>
+
+          {% endfor %}
+        </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+      </div>
+
+      <div class="descript">
+        <div class="infos">
+          <h2>{{produit.marque}} {{produit.nom}}</h2>
+  
+              <p>Condition physique: <b>{{produit.etat}}</b></p>
+              <span>{{ produit.prix }}€</span>
+              <p>{{produit.description}}</p>
+  
+              <button class='addBasket' data-bouton='description' data-id='{{produit.id}}'>Ajouter au panier</button>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-
-    <div class="descript">
-
-        <h2>{{produit.marque}} {{produit.nom}}</h2>
-
-            <p>{{produit.description}}</p>
-
-            <button class='ajout' data-bouton='description' data-id='{{produit.id}}'>Ajouter au panier</button>
-
-    </div>
+      </div>
     </div>
 </main>
 {% endblock %}
