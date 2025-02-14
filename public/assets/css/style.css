@@ -395,6 +395,7 @@ nav a {
     padding: 30px;
   }
 
+
  .sell form div {
   /* display: flex; */
   align-items: center;
@@ -527,12 +528,10 @@ nav a {
   }
 }
 
-
 #carouselExample{
   height: 400px;
   width: 400px;
 }
-
 
 
 /***************  PRODUCT DESCRIPTION & SLIDER***************/

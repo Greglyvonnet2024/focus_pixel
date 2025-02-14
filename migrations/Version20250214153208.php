@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20250210131053 extends AbstractMigration
+final class Version20250214153208 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,14 +20,12 @@ final class Version20250210131053 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE product_sell CHANGE command_id command_id INT DEFAULT NULL');
-        $this->addSql('ALTER TABLE product_sell ADD CONSTRAINT FK_1676F2DC33E1689A FOREIGN KEY (command_id) REFERENCES orders (id)');
+        $this->addSql('ALTER TABLE product_buy CHANGE accepted accepted VARCHAR(255) NOT NULL');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE product_sell DROP FOREIGN KEY FK_1676F2DC33E1689A');
-        $this->addSql('ALTER TABLE product_sell CHANGE command_id command_id INT NOT NULL');
+        $this->addSql('ALTER TABLE product_buy CHANGE accepted accepted TINYINT(1) NOT NULL');
     }
 }

@@ -40,6 +40,9 @@ class ProductBuy
     #[ORM\JoinColumn(nullable: false)]
     private ?Order $command = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $accepted = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -81,12 +84,12 @@ class ProductBuy
         return $this;
     }
 
-    public function getEtatEstimer(): ?string
+    public function getEtat(): ?string
     {
         return $this->etat;
     }
 
-    public function setEtatEstimer(string $etat_estimer): static
+    public function setEtat(string $etat_estimer): static
     {
         $this->etat = $etat_estimer;
 
@@ -137,6 +140,18 @@ class ProductBuy
     public function setCommand(?Order $command): static
     {
         $this->command = $command;
+
+        return $this;
+    }
+
+    public function isAccepted(): ?string
+    {
+        return $this->accepted;
+    }
+
+    public function setAccepted(string $accepted='en attente'): static
+    {
+        $this->accepted = $accepted;
 
         return $this;
     }

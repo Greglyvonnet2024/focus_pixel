@@ -2,14 +2,17 @@
 
 namespace App\Form;
 
+use App\Entity\ProductBuy;
 use App\Entity\ProductSell;
+use App\Repository\ProductBuyRepository;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class FormSellType extends AbstractType
 {
@@ -19,8 +22,8 @@ class FormSellType extends AbstractType
             ->add('marque', TextType::class, [
                 "label" => "Marque:"
             ])
-            ->add('nom' , TextType::class)
-            ->add('etat',ChoiceType::class, [
+            ->add('nom', TextType::class)
+            ->add('etat', ChoiceType::class, [
                 'choices' => [
                     'Usé' => 'use',
                     'Bon' => 'bon',
@@ -36,19 +39,20 @@ class FormSellType extends AbstractType
                 'choices' => [
                     'Boitiers' => 'boitiers',
                     'Optiques' => 'optiques',
-                    'Flashs'=>'flashs',
+                    'Flashs' => 'flashs',
                     'Accessoires' => 'accessoires',
                 ],
                 'multiple' => false,
                 'expanded' => true,
                 'label' => 'Catégories',
-            ]);
+            ])
+            ->add('vente', SubmitType::class, []);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => ProductSell::class,
+            'data_class' => ProductBuy::class,
         ]);
     }
 }

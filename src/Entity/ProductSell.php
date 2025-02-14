@@ -51,6 +51,9 @@ class ProductSell
     #[ORM\OneToMany(targetEntity: Image::class, mappedBy: 'productSell', cascade:['persist'])]
     private Collection $images;
 
+    #[ORM\ManyToOne(inversedBy: 'productSells')]
+    private ?User $user = null;
+
     public function __construct()
     {
         $this->images = new ArrayCollection();
@@ -196,6 +199,18 @@ class ProductSell
                 $image->setProductSell(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }
