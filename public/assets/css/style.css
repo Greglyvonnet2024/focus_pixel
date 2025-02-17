@@ -154,6 +154,7 @@ flex-flow
   background-position: center;
   height: 70vh;
   position: relative;
+  /* justify-content: center; */
 }
 
 /* Conteneur pour le logo et la navigation */
@@ -183,13 +184,15 @@ nav {
   display: flex;
   gap: 20px;
   flex-grow: 1;
+  
+   /* justify-content: center;  */
 }
 
 ul {
   display: flex;
   list-style: none;
-  padding: 0;
-  margin: 0;
+  /* padding: 0;
+  margin: 0; */
 }
 
 nav a:hover {
@@ -209,16 +212,29 @@ nav a {
   transition: 0.4s ease, transform 0.4s ease;
 }
 
+.item {
+  display: flex;
+  flex-grow: 1;
+}
+
+
+
+.item ul {
+justify-content: center; 
+}
+
+
 .item li {
   margin: 0 30px;
 }
 
 .account {
-  margin-left: auto; /* Place .account à l'extrémité droite */
+  margin-left: auto;
 }
 
 .account ul {
   justify-content: end;
+  justify-content: center; 
   display: flex;
   gap: 15px;
 }
@@ -420,32 +436,36 @@ nav a {
 }
 
 
-
-
-
-
-
-
-
-
-
 /*************** END FORM ***************/
 
 /*************** MAIN PRODUCT***************/
 
-/* Conteneur dédier aux produits récement ajouté */
+/* Conteneur dédier aux produits */
 .productSell{
-  justify-content: space-evenly;
-
-  .prodAdd{
-    margin-top: 40px;
-    display: flex;
+  
   
 
+  .prodAdd{
+
+justify-content: space-between;
+
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    
+
     .product{
-      width: 450px;
-      height: 500px;
-      margin: auto;
+
+      width: 350px;
+      height: 450px;
+
+      /* margin: auto; */
+
+      margin-bottom: 40px;
+      gap: 30px;
+      
+
+
       border: 1px solid black;
       border-radius: 10px 10px;
     }
@@ -598,6 +618,7 @@ footer {
 
   .network i{
     color: white;
+    
   }
 }
 
