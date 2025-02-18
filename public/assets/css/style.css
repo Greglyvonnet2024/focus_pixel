@@ -129,6 +129,7 @@ flex-flow
   h2 {
     text-transform: capitalize;
     text-decoration: underline;
+
   }
 
   h3 {
@@ -517,27 +518,40 @@ justify-content: space-between;
 
 .alldetails{
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 
   .descript{
     height: 380px;
     width: 890px;
     margin:auto;
     border: 1px black solid;
-    border-radius: 10pxb 10px;
+    border-radius: 10px;
 
-    .descript button{
-      margin: auto;
-      width: 150px;
-      height: 35px;
-      border-radius: 10px 10px;
-      background-color: rgba(117, 48, 202, 0.992);
-      color: white;
-      font-weight: 700;
-    }
-
+    padding: 20px;
+    box-sizing: border-box;
 
     .infos{
       margin: 20px;
+    }
+
+    .infos h2{
+      font-size: 15px;
+
+    }
+
+    .infos p{
+      padding: 10px;
+    }
+
+    .infos button{
+      margin: auto;
+      width: 150px;
+      height: 35px;
+      border-radius: 10px;
+      background-color: rgba(117, 48, 202, 0.992);
+      color: white;
+      font-weight: 700;
     }
 
     .infos span{
@@ -548,10 +562,52 @@ justify-content: space-between;
   }
 }
 
-#carouselExample{
-  height: 400px;
+
+
+#carouselExample {
   width: 400px;
+  height: 380px;
+  margin: auto;
+  overflow: hidden;
 }
+
+
+#carouselExample img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(48, 0, 77, 0.7);
+  border-radius: 50%;
+  padding: 10px;
+  /* filter: brightness(0) invert(1); */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: auto;
+  height: auto;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 /***************  PRODUCT DESCRIPTION & SLIDER***************/

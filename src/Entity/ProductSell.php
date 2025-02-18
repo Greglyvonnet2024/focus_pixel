@@ -31,7 +31,7 @@ class ProductSell
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255,nullable:true)]
     private ?string $img = null;
 
     #[ORM\Column]
@@ -127,6 +127,9 @@ class ProductSell
 
     public function getImg(): ?string
     {
+        if ($this->img==null){
+            $this->img = 'attente.jpg';
+        }
         return $this->img;
     }
 

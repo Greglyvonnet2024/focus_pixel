@@ -12,8 +12,11 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 
+use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
+use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
@@ -27,8 +30,15 @@ class ProductBuyCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
+            TextField::new('Marque'),
+            TextField::new('Nom'),
+            NumberField::new('Prix'),
+            TextareaField::new('Description'),
+            TextField::new('Etat'),
+        
+            TextField::new('Category'),
     // ça tu mets dans la méthode configureFields() dans le return
-        BooleanField::new('accepted', 'Accepté ?')
+        // BooleanField::new('accepted', 'Accepté ?')
         ];
     }
 
@@ -52,25 +62,28 @@ class ProductBuyCrudController extends AbstractCrudController
     }
 
 
-    public function acceptProduct(EntityManagerInterface $entityManager, int $id): RedirectResponse
+    public function acceptProduct(AdminContext $context, EntityManagerInterface $entityManager): RedirectResponse
     {
-        // 1. Récupérer le produit que l'admin veut accepter
-        $productBuy = $entityManager->getRepository(ProductBuy::class)->find($id);
+        // Récupérer l'ID de l'entité en cours
+        $productBuy = $context->getEntity()->getInstance();
 
         if (!$productBuy) {
             $this->addFlash('danger', 'Produit non trouvé.');
-            return $this->redirect($this->generateUrl('admin')); // Redirige vers l'admin
+            return $this->redirect($this->generateUrl('admin'));
         }
 
         // 2. Créer un nouvel objet ProductSell et lui attribuer les infos du produit acheté
         $productSell = new ProductSell();
+        $productSell->setMarque($productBuy->getMarque());
         $productSell->setNom($productBuy->getNom());
         $productSell->setDescription($productBuy->getDescription());
-        $productSell->setPrix($productBuy->getPrix()); // Prix proposé
-    
+        $productSell->setPrix($productBuy->getPrix());
+        $productSell->setEtat($productBuy->getEtat());
+        $productSell->setStock(1);
+        $productSell->setCategory($productBuy->getCategory());
 
         // 3. Mettre à jour le produit dans ProductBuy pour indiquer qu'il est accepté
-        $productBuy->setAccepted(true);
+        $productBuy->setAccepted('oui');
 
         // 4. Sauvegarder les changements en base de données
         $entityManager->persist($productSell);
@@ -79,8 +92,7 @@ class ProductBuyCrudController extends AbstractCrudController
         $this->addFlash('success', 'Produit accepté et ajouté à la vente.');
 
         return $this->redirect($this->generateUrl('admin'));
-
-        
     }
+
 }
 
