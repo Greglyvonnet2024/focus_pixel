@@ -52,8 +52,10 @@
               {% if app.user and not is_granted('ROLE_ADMIN') %}
 
                 <li>
-                <a href="{{path('app_profil')}}">
-                <i class="fa-solid fa-user fa-xs"></i><p>(Vous êtes connecté en tant que {{app.user.prenom}})</p>
+                  <a href="{{path('app_profil')}}" class="myProfil">
+                  <i class="fa-solid fa-user fa-xs"></i>
+                  <span class="welcome">(Bonjour {{app.user.prenom}}) !!</span>
+                  <span class="profil">Mon profil</span>
                 </a>
                 </li>
 
@@ -64,10 +66,9 @@
               {% elseif is_granted('ROLE_ADMIN') %}
                 <li>
                 <a href="{{ path('admin') }}" class="btn btn-primary"><i class="fa-solid fa-crown fa-xs"></i>Accéder au Tableau de bord</a></li>
-                 <li>
+                <li>
                   <a href="{{ path('app_logout') }}">Déconnexion</a>
                 </li>
-             
 
               {% else %}
                 <li>

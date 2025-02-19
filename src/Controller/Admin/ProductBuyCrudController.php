@@ -42,8 +42,6 @@ class ProductBuyCrudController extends AbstractCrudController
         ];
     }
 
-
-
     public function configureActions(Actions $actions): Actions
     {
         $acceptAction = Action::new('accept', 'Accepter')

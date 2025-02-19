@@ -54,6 +54,13 @@ class ProductSell
     #[ORM\ManyToOne(inversedBy: 'productSells')]
     private ?User $user = null;
 
+    #[ORM\Column(type: 'boolean')]
+    private bool $isAvailable = false;
+
+    #[ORM\Column]
+    private ?bool $isSold = null;
+
+
     public function __construct()
     {
         $this->images = new ArrayCollection();
@@ -214,6 +221,30 @@ class ProductSell
     public function setUser(?User $user): static
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getIsAvailable(): ?bool
+    {
+        return $this->isAvailable;
+    }
+
+    public function setIsAvailable(bool $isAvailable=true): static
+    {
+        $this->isAvailable = $isAvailable;
+
+        return $this;
+    }
+
+    public function getIsSold(): ?bool
+    {
+        return $this->isSold;
+    }
+
+    public function setIsSold(bool $isSold): static
+    {
+        $this->isSold = $isSold;
 
         return $this;
     }

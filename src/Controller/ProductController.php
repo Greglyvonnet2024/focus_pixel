@@ -12,12 +12,14 @@ class ProductController extends AbstractController
     #[Route('/product/{category}', name: 'app_product')]
     public function index(string $category, ProductSellRepository $productSellRepository): Response
     {
-        $produits = $productSellRepository->findBy(['category' => $category]);
+        $produits = $productSellRepository->findBy(['category' => $category, 'isAvailable'=>true, 'isSold'=>false
+    ]);
+
+        // Permet l'affichage des produit avec le bouton en vente
 
         return $this->render('product/index.html.twig', [
-            'controller_name' => 'ProductController',
             'products' => $produits,
-            'titre' => $category
+            'titre'=>$category
         ]);
     }
 }

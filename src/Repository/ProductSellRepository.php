@@ -32,11 +32,12 @@ class ProductSellRepository extends ServiceEntityRepository
     }
 
 
+// activer pour le bouton boleen en vente ou en attente 
 
     // public function findAvailableProducts(): array
     // {
     //     return $this->createQueryBuilder('p')
-    //     ->where('p.isSold = false')
+    //     ->where("p.isAvailable = true")
     //     ->getQuery()
     //         ->getResult();
     // }

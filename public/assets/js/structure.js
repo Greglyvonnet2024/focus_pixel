@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const BOUTONS = document.querySelectorAll(".ajout");
+  const BOUTONS = document.querySelectorAll(".addBasket");
 
   BOUTONS.forEach(function (bouton) {
     bouton.addEventListener("click", function () {
