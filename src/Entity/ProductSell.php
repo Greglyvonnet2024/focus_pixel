@@ -249,8 +249,5 @@ class ProductSell
         return $this;
     }
 
- 
+
 }
-
-
- 
