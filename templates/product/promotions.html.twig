@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Promotions{% endblock %}
+
+{% block body %}
+<main class="contenair">
+    <h2 class="titlePage">{{ titre }}</h2>	
+
+    <div class="prodAdd">
+        {% for item in products %}
+            <div class="product">
+                
+                <div class="prodImg">
+                    <img src="{{ asset("/assets/img/" ~ item.img) }}" alt="{{ item.nom }}">
+                </div>
+
+                <div class="prodInfo">
+                    <h4 id="titleP">{{ item.marque }}, {{ item.nom }}</h4>
+                    <p>Condition physique: <b>{{ item.etat }}</b></p>
+                    
+                    <p>Prix initial : <span class="old-price">{{ item.prix }}€</span></p>
+                    <p>Prix après réduction : <span class="new-price">{{ item.getNewPrice() }}€</span></p>
+                </div>
+
+                <div class="link">
+                    <button><a href="{{ path('app_description', {id : item.id}) }}">En savoir plus</a></button>
+                    <button class="addBasket" data-id="{{ item.id }}">Ajouter au panier</button>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}

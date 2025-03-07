@@ -14,6 +14,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 
 class ProductSellCrudController extends AbstractCrudController
 {
@@ -47,8 +48,12 @@ class ProductSellCrudController extends AbstractCrudController
                 ->onlyOnForms(),
 
             BooleanField::new('isAvailable', 'En vente'),
-            BooleanField::new('isSold', 'Vendu')
-        
+            BooleanField::new('isSold', 'Vendu'),
+            IntegerField::
+            new('promotions', 'Promotion (%)'),
+            
+            
+
             ];
     }
 }

@@ -60,6 +60,9 @@ class ProductSell
     #[ORM\Column]
     private ?bool $isSold = null;
 
+    #[ORM\Column(length: 255)]
+    private ?int $promotions = null;
+
 
     public function __construct()
     {
@@ -249,5 +252,24 @@ class ProductSell
         return $this;
     }
 
+    public function getPromotions(): ?int
+    {
+        return $this->promotions;
+    }
 
+    public function setPromotions(?int $promotions): self
+    {
+        $this->promotions = $promotions;
+
+        return $this;
+    }
+    public function getNewPrice(): ?float
+{
+    if ($this->promotions > 0) {
+        return round($this->prix - ($this->prix * $this->promotions / 100), 2);
+    }
+    return $this->prix;
 }
+}
+
+
