@@ -2,15 +2,18 @@
 
 namespace App\Controller;
 
+use App\Entity\ProductSell;
+use App\Repository\FavoriteRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\ProductSellRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ProductController extends AbstractController
 {
     #[Route('/product/{category}', name: 'app_product')]
-    public function index(string $category, ProductSellRepository $productSellRepository): Response
+    public function index(string $category, ProductSellRepository $productSellRepository, FavoriteRepository $favoriteRepository): Response
     {
         $produits = $productSellRepository->findBy([
             'category' => $category,
@@ -18,10 +21,22 @@ class ProductController extends AbstractController
             'isSold' => false
         ]);
 
+        $user = $this->getUser();
+
+        $favorite = [];
+        if ($user){
+            $favoriteUser = $favoriteRepository->findBy(['user' => $user]);
+            foreach ($favoriteUser as $fav){
+                $favorite[] = $fav->getProduct()->getId();
+            }
+        }
+
+
         // Permet l'affichage des produit avec le bouton en vente
 
         return $this->render('product/index.html.twig', [
             'products' => $produits,
+            'favorite' => $favorite,
             'titre' => $category
         ]);
     }
@@ -32,7 +47,7 @@ class ProductController extends AbstractController
     public function promotions(ProductSellRepository $productSellRepository): Response
     {
         // Récupère uniquement les produits qui ont une promotion
-        $produits = $productSellRepository->findBy(['isAvailable' => true, 'isSold' => false]);
+        $produits = $productSellRepository->findBy(['category'=>'Promotions', 'isAvailable' => true, 'isSold' => false]);
 
 
         $productPromo = [];

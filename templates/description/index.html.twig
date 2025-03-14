@@ -43,8 +43,21 @@
               <p>Condition physique: <b>{{produit.etat}}</b></p>
               <span>{{ produit.prix }}€</span>
               <p>{{produit.description}}</p>
-  
+              
               <button class='addBasket' data-bouton='description' data-id='{{produit.id}}'>Ajouter au panier</button>
+
+{% if app.user %}
+
+							<span class="fav" data-id="{{ produit.id }}">
+								{% if isFavorite %}
+									<i class="fa-solid fa-bookmark" style="color: #7530ca;"></i>
+								{% else %}
+									<i class="fa-regular fa-bookmark"></i>
+								{% endif %}
+									</span>
+									
+								{% endif %}
+
   </div>
       </div>
     </div>

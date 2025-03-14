@@ -31,7 +31,15 @@ class ProductSellRepository extends ServiceEntityRepository
         ;
     }
 
-
+public function findByPromotions(){
+        return $this->createQueryBuilder('p')
+            ->where('p.isAvailable = :available')
+            ->andWhere('p.promotions > :promo')
+            ->setParameter('available', true)
+            ->setParameter('promo', 0)
+            ->getQuery()
+            ->getResult();
+}
 // activer pour le bouton boleen en vente ou en attente 
 
     // public function findAvailableProducts(): array

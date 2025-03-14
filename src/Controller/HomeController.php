@@ -16,10 +16,13 @@ class HomeController extends AbstractController
 
         // !!!! A changer le 'id' pour faire aparaitre le produit sa photo et son prix//
         $items = $productSellRepository->findBy(["isAvailable"=>true], ['id' => 'DESC'], 4);
-        
+
+        $promotions = $productSellRepository->findByPromotions();
+
         return $this->render('home/index.html.twig', [
             'controller_name' => 'Accueil',
-            'products'=> $items
+            'products'=> $items,
+            'promotions' =>$promotions
         ]);
     }
 

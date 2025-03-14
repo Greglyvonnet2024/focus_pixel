@@ -62,13 +62,26 @@ class ProductSell
 
     #[ORM\Column(length: 255)]
     private ?int $promotions = null;
+    private ?string $originalCategory = null;
 
+    /**
+     * @var Collection<int, User>
+     */
+    #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'favoris')]
+    private Collection $users;
+
+    /**
+     * @var Collection<int, Favorite>
+     */
+    #[ORM\OneToMany(targetEntity: Favorite::class, mappedBy: 'product')]
+    private Collection $favorites;
 
     public function __construct()
     {
         $this->images = new ArrayCollection();
+        $this->users = new ArrayCollection();
+        $this->favorites = new ArrayCollection();
     }
-
 
     public function getId(): ?int
     {
@@ -261,15 +274,58 @@ class ProductSell
     {
         $this->promotions = $promotions;
 
-        return $this;
+if ($promotions >0) {
+            $this->category = 'Promotions';
+}else{
+            $this->category = $this->originCategory ?? $this->category;
+}
+ return $this;
     }
+
+    public function saveOriginCategory(){
+        $this->originalCategory = $this->category;
+    }
+
     public function getNewPrice(): ?float
 {
-    if ($this->promotions > 0) {
+    if ($this->promotions && $this->promotions  > 0) {
         return round($this->prix - ($this->prix * $this->promotions / 100), 2);
     }
     return $this->prix;
 }
+
+    /**
+     * @return Collection<int, Favorite>
+     */
+    public function getFavorites(): Collection
+    {
+        return $this->favorites;
+    }
+
+    public function addFavorite(Favorite $favorite): static
+    {
+        if (!$this->favorites->contains($favorite)) {
+            $this->favorites->add($favorite);
+            $favorite->setProduct($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFavorite(Favorite $favorite): static
+    {
+        if ($this->favorites->removeElement($favorite)) {
+            // set the owning side to null (unless already changed)
+            if ($favorite->getProduct() === $this) {
+                $favorite->setProduct(null);
+            }
+        }
+
+        return $this;
+    }
+
+
+
 }
 
 

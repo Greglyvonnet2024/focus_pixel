@@ -9,12 +9,12 @@
 
     <h1>Bonjour {{app.user.prenom}}!</h1>
 
-        <div class="sideNav">
+        <div class="profil-nav"> 
 
             <a href="{{path('app_home')}}">Retour à la page d'accueil</a>
 
-                <div class="menu">
-                    <a href="# {#parametre#}">Paramètres</a>
+                <div class="menu-profil">
+                    <a href="#{#parametre#}">Paramètres</a>
                     <a href="#{#estimations#}">Estimations</a>
                     <a href="#{#transactions#}">Transactions</a>
                     <a href="#{#save#}">Sauvgardé</a>
@@ -22,14 +22,14 @@
         </div>
 
 
-{# essai pour que le profil soit visible uniquement quand connecté >>>acces vias config>package> security.yaml> a ete changer "^/profil en user" >>> 
-access_control:
+  {# essai pour que le profil soit visible uniquement quand connecté >>>acces vias config>package> security.yaml> a ete changer "^/profil en user" >>> 
+  access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/user, roles: ROLE_USER } #}
 
 
 
-        <div class="grix xs2">
+        <div class="profil-infos">
             <div>Nom:</div>
             <div>{{app.user.nom}}</div>
 
@@ -44,11 +44,10 @@ access_control:
         </div>
 
 
-
+{# 
 <main class="layout-sidenav-fixed">
     <header>
       <nav class="navbar shadow-1 primary">
-        <a href="#" target="_blank" class="navbar-brand">Axentix</a>
         <div class="navbar-menu ml-auto">
           <a class="navbar-link" href="#">Link 1</a>
           <a class="navbar-link" href="#">Link 2</a>
@@ -56,40 +55,8 @@ access_control:
           <a class="navbar-link" href="#">Link 4</a>
         </div>
       </nav>
-    </header>
-
-    <div id="example-sidenav" data-ax="sidenav" class="sidenav shadow-1 sidenav-fixed white">
-      <div class="sidenav-header">
-        <img class="sidenav-logo dropshadow-1" src="your_img_path" alt="Logo" />
-      </div>
-      <a href="#" class="sidenav-link active">Link 1</a>
-      <a href="#" class="sidenav-link">Link 2</a>
-      <a href="#" class="sidenav-link">Link 3</a>
-      <a href="#" class="sidenav-link">Link 4</a>
-    </div>
-
-    <main>
-      <!-- Code here the main content -->
-      <button data-target="example-sidenav"
-        class="btn rounded-1 press amaranth dark-1 hide-md-up">
-          Open sidenav
-      </button>
-    </main>
+    </header> #}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-{% endblock %}
+  </div>
+    {% endblock %}

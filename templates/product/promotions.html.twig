@@ -4,9 +4,12 @@
 
 {% block body %}
 <main class="contenair">
+
+<div class="productSell">
+
     <h2 class="titlePage">{{ titre }}</h2>	
 
-    <div class="prodAdd">
+    <div class="promoAdd">
         {% for item in products %}
             <div class="product">
                 
@@ -18,8 +21,8 @@
                     <h4 id="titleP">{{ item.marque }}, {{ item.nom }}</h4>
                     <p>Condition physique: <b>{{ item.etat }}</b></p>
                     
-                    <p>Prix initial : <span class="old-price">{{ item.prix }}€</span></p>
-                    <p>Prix après réduction : <span class="new-price">{{ item.getNewPrice() }}€</span></p>
+                    <span class="old-price">{{ item.prix }}€</span>
+                    <span class="new-price">{{ item.getNewPrice() }}€</span>
                 </div>
 
                 <div class="link">
@@ -29,5 +32,7 @@
             </div>
         {% endfor %}
     </div>
+</div>
+
 </main>
 {% endblock %}

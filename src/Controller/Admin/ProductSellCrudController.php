@@ -14,7 +14,9 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
+use Symfony\Component\Validator\Constraints\Choice;
 
 class ProductSellCrudController extends AbstractCrudController
 {
@@ -36,7 +38,20 @@ class ProductSellCrudController extends AbstractCrudController
             ->setUploadDir('public/assets/img')
             ->setRequired(true),
             NumberField::new('Stock'),
-            TextField::new('Category'),
+
+            // TextField::new('Category'),
+
+            ChoiceField::new ('Category')
+            ->setChoices([
+                'Boitier' => 'boitiers',
+                'Optiques' => 'optiques',
+                'Flashs' => 'flashs',
+                'Accessoires' => 'accessoires',
+                'Promotions' => 'promotions',
+            ])
+            ->setHelp('Sélectionnez une categorie'),
+
+
             CollectionField::new('Images')
             ->setEntryType(ImagesType::class)
                 ->setFormTypeOptions([
@@ -49,11 +64,16 @@ class ProductSellCrudController extends AbstractCrudController
 
             BooleanField::new('isAvailable', 'En vente'),
             BooleanField::new('isSold', 'Vendu'),
-            IntegerField::
-            new('promotions', 'Promotion (%)'),
-            
-            
 
+            ChoiceField::new('promotions', 'Reduction en (%)')
+            ->setChoices([
+                '0'=> 0,
+                '5%' => 5,
+                '10%' => 10,
+                '15%' => 15,
+                '20%' => 20,
+            ])
+            ->setHelp('Sélectionnez un pourcentage de réduction à appliquer au produit'),
             ];
     }
 }

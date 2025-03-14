@@ -13,6 +13,7 @@
 			<div class="prodAdd">
 
 				{% for item in products %}
+				
 					<div class="product">
 						
 						<div class="prodImg">
@@ -22,17 +23,32 @@
 						<div class="prodInfo">
 							<h4 id="titleP">{{ item.marque }}, {{ item.nom }}</h4>
 							<p>Condition physique: <b>{{item.etat}}</b></p>
-							<span>{{ item.prix }}€</span>
 
-							 {% if item.isSold %}
+							<div class="priceFav">
+								<span>{{ item.prix }}€</span>
+
+								{% set isFavorite = item.id in favorite %}
+								{% if app.user %}
+
+								<span class="fav" data-id="{{ item.id }}">
+									{% if isFavorite %}
+									<i class="fa-solid fa-bookmark" style="color: #7530ca;"></i>
+									{% else %}
+									<i class="fa-regular fa-bookmark"></i>
+									{% endif %}
+								</span>
+							</div>							
+								{% endif %}
+	
+
+							{% if item.isSold %}
                             <p class="status">Vendu</p>
                         {% endif %}
 						</div>
 
 						<div class="link">
 							<button><a href="{{path('app_description', {id : item.id})}}">En savoir plus</a></button>
-							{# Voir pour activer le bouton favoris #}
-							{# <button class="btn shadow-1 btn-small btn-circle primary"><span class="iconify-inline" data-icon="mdi:thumb-up"></span></button> #}
+							
 							<button class="addBasket" data-bouton='page-prod' data-id="{{item.id}}">Ajouter au panier</button>
 						</div>
 					</div>

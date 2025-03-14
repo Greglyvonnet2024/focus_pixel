@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
           if (result.success) {
             this.parentElement.parentElement.remove();
             document.querySelector("#cart_nb").textContent = result.numb_cart;
-            console.log(result.total)
+            console.log(result.total);
             document.querySelector("#totalPanier").textContent = result.total;
           }
         })
@@ -61,8 +61,30 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  document.querySelectorAll(".fav").forEach((button) => {
+    console.log("coucou");
+    button.addEventListener("click", function () {
+      let productId = this.dataset.id;
+      let icon = this.querySelector("i");
 
-
+      fetch(`/favorite`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: productId,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.isFavorite) {
+            this.innerHTML = `<i class="fa-solid fa-bookmark" style="color: #7530ca;"></i>`;
+            
+        } else {
+            this.innerHTML=`<i class="fa-regular fa-bookmark fa-sm"></i>`;
+          }
+        });
+    });
+  });
 });
-
- 
