@@ -71,7 +71,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(targetEntity: Favorite::class, mappedBy: 'user')]
     private Collection $favorites;
 
-  
+
+// ***** ici rajout 
+
+    #[ORM\ManyToMany(targetEntity: ProductSell::class, inversedBy: 'users')]
+    #[ORM\JoinTable(name: 'user_favorites')]
+    private Collection $favoris;
+
+// *****fin rajout 
+
 
     public function __construct()
     {
@@ -211,6 +219,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return $this->productbuys;
     }
+
 
 
 

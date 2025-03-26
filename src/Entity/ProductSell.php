@@ -67,14 +67,24 @@ class ProductSell
     /**
      * @var Collection<int, User>
      */
-    #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'favoris')]
-    private Collection $users;
+
+
+    // ***** ici effacement 
+    // #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'favoris')]
+    // private Collection $users;
+    // ****** fin de l'effacement 
+
+      // ***** ici rajout
+    #[ORM\OneToMany(targetEntity: Favorite::class, mappedBy: 'product', cascade: ['remove'], orphanRemoval: true)]
+    private Collection $favorites;
+// ****** fin rajout 
+
 
     /**
      * @var Collection<int, Favorite>
      */
-    #[ORM\OneToMany(targetEntity: Favorite::class, mappedBy: 'product')]
-    private Collection $favorites;
+    // #[ORM\OneToMany(targetEntity: Favorite::class, mappedBy: 'product')]
+    // private Collection $favorites;
 
     public function __construct()
     {
