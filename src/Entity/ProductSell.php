@@ -299,7 +299,7 @@ if ($promotions >0) {
     public function getNewPrice(): ?float
 {
     if ($this->promotions && $this->promotions  > 0) {
-        return round($this->prix - ($this->prix * $this->promotions / 100), 2);
+        return round ($this->prix - ($this->prix * $this->promotions / 100), 2);
     }
     return $this->prix;
 }
