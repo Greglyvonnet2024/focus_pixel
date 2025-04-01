@@ -183,18 +183,22 @@ nav a {
 
 /* Conteneur dédier aux produits récement ajouté */
 .recentlyAdd {
-  justify-content: space-evenly;
+  justify-content: center;/*space evenly*/
   margin-top: 50px;
 
   .prodAdd {
-    margin-top: 40px;
+   width: 100%;/*ajout test*/
+   justify-content: center; /*ajout test*/
+   flex-wrap: wrap;/*ajout test*/
+
+    margin-top: 40px 30px; /*sans 30px*/
     display: flex;
 
     .product {
       width: 350px;
-      height: 420px;
-      margin: auto;
-      /* margin: 40px 20px; */
+      height: 450px;/*anciennement 420px*/
+      /* margin: auto; */
+      margin: 40px 20px;
       border: 1px solid black;
       border-radius: 10px 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -216,6 +220,11 @@ nav a {
 
     .prodInfo {
       margin: 20px;
+    }
+
+    #titleP {
+      height: 50px;
+      text-align: center;
     }
 
     .prodInfo span {
@@ -385,22 +394,33 @@ nav a {
 
 /* Conteneur dédier aux produits */
 .productSell {
-  /* justify-content: space-between; */
+  justify-content: center; /*ajout test*/
+  /* display: flex;ajout test */
+
   margin-top: 50px;
 
   .prodAdd {
-    justify-content: space-between;
+    justify-content: center; /*ajout test*/
+    /* max-width: 1200px; ajout test */
+    width: 100%;/*ajout test*/
+
     margin: 40px 30px;
     display: flex;
     flex-wrap: wrap;
 
     .product {
       width: 350px;
-      height: 420px;
-      /* margin: 40px 20px; */
-      margin: auto;
+      height: 450px;/*anciennement 420px*/
+      margin: 40px 20px;
+      /* margin: auto; */
       border: 1px solid black;
       border-radius: 10px 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .product:hover {
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     }
 
     .prodImg img {
@@ -469,7 +489,12 @@ nav a {
     margin: 40px 20px;
     border: 1px solid black;
     border-radius: 10px 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: box-shadow 0.3s ease-in-out;
   }
+  .product:hover {
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
 
   .prodImg img {
     display: flex;
