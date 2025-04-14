@@ -26,6 +26,15 @@
     margin-bottom: 10px;
   }
 
+  h4 {
+text-decoration: underline;
+  }
+
+    h5 {
+text-decoration: underline;
+  }
+
+
   .contenair {
     margin: 50px auto;
     width: 1650px;
@@ -187,9 +196,9 @@ nav a {
   margin-top: 50px;
 
   .prodAdd {
-   width: 100%;/*ajout test*/
-   justify-content: center; /*ajout test*/
-   flex-wrap: wrap;/*ajout test*/
+  width: 100%;/*ajout test*/
+  justify-content: center; /*ajout test*/
+  flex-wrap: wrap;/*ajout test*/
 
     margin-top: 40px 30px; /*sans 30px*/
     display: flex;
@@ -687,22 +696,73 @@ footer {
   display: flex;
   background-color: grey;
   color: white;
-  justify-content: space-evenly;
+  justify-content:center;
   align-items: center;
 
-  .footLogo img {
-    width: 100px;
-    height: 100px;
-  }
 
-  .us {
-    width: 400px;
-  }
+  .infos_link {
+  display: flex;
+  justify-content: space-between; /* espace entre les blocs */
+  align-items: flex-start;
 
-  .network i {
+
+    .link {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centre horizontalement */
+    text-align: center;
+    }
+
+
+    .footLogo img {
+    width: 120px;
+    height: auto;
+    }
+
+
+    .network a{
     color: white;
+    margin: 5px;
+    text-decoration: none;
+    }
+
+
+    .us a {
+    color: white;
+    margin: 5px;
+    }
   }
+
+  .map_adress{
+  display: flex;
+  
+  margin: auto;
+  /* justify-content:center;
+  align-items: center; */
+
+    .map{
+      padding: 10px;
+    }
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
 
 /*************** END FOOTER ***************/
 
