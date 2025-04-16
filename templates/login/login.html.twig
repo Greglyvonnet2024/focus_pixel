@@ -8,15 +8,12 @@
   
 {% for messages in app.flashes("error") %}
 
-<h3>{{messages}}</h3>
+<div class="alert alert-danger">{{messages}}</div>
   
 {% endfor %}
 
     <div class="login">
       <form class="log" method="post">
-        {% if error %}
-          <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-        {% endif %}
 
         {% if app.user %}
           <div class="mb-3">
@@ -51,41 +48,4 @@
       </form>
     </div>
   </main>
-  {# <main class="newContenair">
-    <div class="wrapper">
-
-        <section class="login">
-            <h1>Connexion</h1>
-                <form action="">
-                    <div class="inputbox">
-                    <i class="fa-solid fa-envelope fa-xs"></i>
-                        <input type="email">
-                        <label for="">Email</label>
-                    </div>
-
-                    <div class="inputbox">
-                    <i class="fa-solid fa-lock fa-xs"></i>
-                        <input type="password">
-                        <label for="">Mot de passe</label>
-                    </div>
-
-                    <div class="forgot">
-                        <input type="checkbox">
-                        <a href="">Mot de passe oublié ?</a>
-                    </div>
-
-                    <button>Connexion</button>
-
-                    <div class="regist">
-                        <span> Pas de compte ?</span>
-                        <a href="">Inscrivez-vous</a>
-                    </div>
-                </form>
-
-        </section>
-
-
-
-    </div>
-</main> #}
 {% endblock %}

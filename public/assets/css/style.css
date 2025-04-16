@@ -324,8 +324,8 @@ nav a {
 /* Formulaire de connexion */
 
 .login {
-  width: 350px;
-  height: 430px;
+  height: 500px;
+  width: 450px;
   border: 1px black;
   border-radius: 10px 10px;
   margin: auto;
@@ -693,25 +693,26 @@ nav a {
 /*************** FOOTER ***************/
 
 footer {
-  display: flex;
-  background-color: grey;
-  color: white;
-  justify-content:center;
-  align-items: center;
+/* display: flex; */
+background-color: grey;
+color: white;
+padding: 20px 40px;
 
 
   .infos_link {
   display: flex;
   justify-content: space-between; /* espace entre les blocs */
-  align-items: flex-start;
+  align-items: center;
+  position:relative;
+  height: 200px;
 
 
     .link {
     margin: auto;
     display: flex;
-    flex-direction: column;
-    align-items: center; /* centre horizontalement */
     text-align: center;
+    align-items: center;
+    flex-direction: column;
     }
 
 
@@ -719,7 +720,6 @@ footer {
     width: 120px;
     height: auto;
     }
-
 
     .network a{
     color: white;
@@ -736,10 +736,8 @@ footer {
 
   .map_adress{
   display: flex;
-  
-  margin: auto;
-  /* justify-content:center;
-  align-items: center; */
+  text-align: right;
+
 
     .map{
       padding: 10px;
