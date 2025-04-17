@@ -10,8 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
-use App\Security\AppAuthenticator;
-use Symfony\Component\Security\Http\Authenticator;
+
 
 class loginController extends AbstractController
 {
@@ -27,6 +26,7 @@ class loginController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
+            
             $user = $userRepository->findOneBy(['email' => $data['email']]);
 
             if (!$user || !$hasher->isPasswordValid($user, $data['password'])) {

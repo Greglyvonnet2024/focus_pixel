@@ -18,10 +18,10 @@ class LoginType extends AbstractType
         ;
     }
 
-    public function configureOptions(OptionsResolver $resolver): void
-    {
-        $resolver->setDefaults([
-            // Configure your form options here
-        ]);
-    }
+    // public function configureOptions(OptionsResolver $resolver): void
+    // {
+    //     $resolver->setDefaults([
+    //         // Configure your form options here
+    //     ]);
+    // }
 }

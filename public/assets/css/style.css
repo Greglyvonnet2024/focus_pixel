@@ -286,13 +286,64 @@ nav a {
 
 /* Formulaire d'inscription */
 
-.registerForm {
+
+.registerform{
+  display: flex;
+justify-content: center;
+}
+
+.register{
+  background-color: rgb(192, 187, 187);
+  height: 600px;
+  padding: 20px;
+width: 550px;
+border-radius: 20px;
+display: grid;
+}
+
+.register label{
+/* padding-right: 30px; */
+justify-content: space-between;
+/* display: grid; */
+align-items: center;
+}
+
+.register input{
+  
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.registerform form > div {
+  margin-bottom: 20px;
+}
+
+
+.sub {
+    margin: auto;
+    width: 200px;
+    height: 40px;
+    border-radius: 10px 10px;
+    background-color: rgba(117, 48, 202, 0.992);
+    color: white;
+    font-weight: 700;
+    font-size: medium;
+    align-items: center;
+  }
+
+/* .registerForm {
   height: 500px;
   width: 450px;
   margin: auto;
   border: 1px black;
   border-radius: 10px;
   background-color: rgb(192, 187, 187);
+  display: flex;
+
+  .register{
+    display: grid;
+    justify-content: center;
+  }
 
   .register form {
     margin: 20px;
@@ -310,6 +361,10 @@ nav a {
     margin-right: 20px;
   }
 
+  .register form input {
+  border-radius: 5px;
+  }
+
   .sub {
     margin: auto;
     width: 150px;
@@ -319,17 +374,40 @@ nav a {
     color: white;
     font-weight: 700;
   }
-}
+} */
+
+
+
+
 
 /* Formulaire de connexion */
 
 .login {
   height: 500px;
   width: 450px;
+  margin: auto;
   border: 1px black;
   border-radius: 10px 10px;
-  margin: auto;
   background-color: rgb(192, 187, 187);
+
+  .sub {
+    margin: auto;
+    width: 150px;
+    height: 35px;
+    border-radius: 10px 10px;
+    background-color: rgba(117, 48, 202, 0.992);
+    color: white;
+    font-weight: 700;
+  }
+
+  .login form label {
+    padding-left: 20px;
+
+  }
+
+
+
+
 }
 
 /* Formulaire de vente */
