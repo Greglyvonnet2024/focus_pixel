@@ -27,13 +27,12 @@
   }
 
   h4 {
-text-decoration: underline;
+    text-decoration: underline;
   }
 
-    h5 {
-text-decoration: underline;
+  h5 {
+    text-decoration: underline;
   }
-
 
   .contenair {
     margin: 50px auto;
@@ -192,20 +191,20 @@ nav a {
 
 /* Conteneur dédier aux produits récement ajouté */
 .recentlyAdd {
-  justify-content: center;/*space evenly*/
+  justify-content: center; /*space evenly*/
   margin-top: 50px;
 
   .prodAdd {
-  width: 100%;/*ajout test*/
-  justify-content: center; /*ajout test*/
-  flex-wrap: wrap;/*ajout test*/
+    width: 100%; /*ajout test*/
+    justify-content: center; /*ajout test*/
+    flex-wrap: wrap; /*ajout test*/
 
     margin-top: 40px 30px; /*sans 30px*/
     display: flex;
 
     .product {
       width: 350px;
-      height: 450px;/*anciennement 420px*/
+      height: 450px; /*anciennement 420px*/
       /* margin: auto; */
       margin: 40px 20px;
       border: 1px solid black;
@@ -286,98 +285,50 @@ nav a {
 
 /* Formulaire d'inscription */
 
-
-.registerform{
+.registerform {
   display: flex;
-justify-content: center;
+  justify-content: center;
 }
 
-.register{
+.register {
   background-color: rgb(192, 187, 187);
   height: 600px;
   padding: 20px;
-width: 550px;
-border-radius: 20px;
-display: grid;
+  width: 550px;
+  border-radius: 20px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
 
-.register label{
-/* padding-right: 30px; */
-justify-content: space-between;
-/* display: grid; */
-align-items: center;
+.register label {
+  /* padding-right: 30px; */
+  justify-content: space-between;
+  display: block;
+  align-items: center;
+  margin-bottom: 6px;
 }
 
-.register input{
-  
+.register input {
   border-radius: 5px;
   padding: 5px;
+  margin-bottom: 10px;
 }
 
 .registerform form > div {
   margin-bottom: 20px;
 }
 
-
 .sub {
-    margin: auto;
-    width: 200px;
-    height: 40px;
-    border-radius: 10px 10px;
-    background-color: rgba(117, 48, 202, 0.992);
-    color: white;
-    font-weight: 700;
-    font-size: medium;
-    align-items: center;
-  }
-
-/* .registerForm {
-  height: 500px;
-  width: 450px;
-  margin: auto;
-  border: 1px black;
+  width: 200px;
+  height: 40px;
   border-radius: 10px;
-  background-color: rgb(192, 187, 187);
-  display: flex;
-
-  .register{
-    display: grid;
-    justify-content: center;
-  }
-
-  .register form {
-    margin: 20px;
-    padding: 30px;
-  }
-
-  .register form div {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    justify-content: space-between;
-  }
-
-  .register form label {
-    margin-right: 20px;
-  }
-
-  .register form input {
-  border-radius: 5px;
-  }
-
-  .sub {
-    margin: auto;
-    width: 150px;
-    height: 35px;
-    border-radius: 10px 10px;
-    background-color: rgba(117, 48, 202, 0.992);
-    color: white;
-    font-weight: 700;
-  }
-} */
-
-
-
+  background-color: rgba(117, 48, 202, 0.992);
+  color: white;
+  font-weight: 700;
+  font-size: medium;
+  align-items: center;
+}
 
 
 /* Formulaire de connexion */
@@ -402,12 +353,7 @@ align-items: center;
 
   .login form label {
     padding-left: 20px;
-
   }
-
-
-
-
 }
 
 /* Formulaire de vente */
@@ -489,7 +435,7 @@ align-items: center;
   .prodAdd {
     justify-content: center; /*ajout test*/
     /* max-width: 1200px; ajout test */
-    width: 100%;/*ajout test*/
+    width: 100%; /*ajout test*/
 
     margin: 40px 30px;
     display: flex;
@@ -497,7 +443,7 @@ align-items: center;
 
     .product {
       width: 350px;
-      height: 450px;/*anciennement 420px*/
+      height: 450px; /*anciennement 420px*/
       margin: 40px 20px;
       /* margin: auto; */
       border: 1px solid black;
@@ -577,11 +523,11 @@ align-items: center;
     border: 1px solid black;
     border-radius: 10px 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      transition: box-shadow 0.3s ease-in-out;
+    transition: box-shadow 0.3s ease-in-out;
   }
   .product:hover {
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    }
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
 
   .prodImg img {
     display: flex;
@@ -648,26 +594,52 @@ align-items: center;
 
 /*************** END MAIN PRODUCT***************/
 
-/***************  PRODUCT DESCRIPTION & SLIDER***************/
+/***************  PRODUCT DESCRIPTION & CAROUSEL***************/
 
 .alldetails {
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  .descript {
-    height: 380px;
-    width: 890px;
-    margin: auto;
-    border: 1px black solid;
-    border-radius: 10px;
+.product-description {
+  max-height: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5em;
+  margin-bottom: 15px;
+}
 
-    padding: 20px;
-    box-sizing: border-box;
+
+  .descript {
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: white;
+  max-width: 900px;
+  margin: auto;
+  box-sizing: border-box;
+  overflow: hidden; /* évite tout débordement */
+
 
     .infos {
-      margin: 20px;
+      /* margin: 20px; */
+
+      /* rajout >>> */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
     }
+
+    /* rajout >>> */
+  .description-scrollable {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin: 15px 0;
+    padding-right: 5px;
+    max-height: 250px;
+    line-height: 1.4em;
+    }
+
 
     .infos h2 {
       font-size: 15px;
@@ -678,20 +650,40 @@ align-items: center;
     }
 
     .infos button {
-      margin: auto;
+      /* display: block;
+      margin: 20px auto 0 auto;
       width: 150px;
       height: 35px;
       border-radius: 10px;
       background-color: rgba(117, 48, 202, 0.992);
       color: white;
       font-weight: 700;
-    }
+      padding: 10px 20px; */
 
-    .infos span {
+
+ display: block;
+  margin: 20px auto 0 auto; /* centre le bouton et ajoute de l'espace */
+  padding: 10px 20px;
+  background-color: #7530ca;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+
+    }
+    :hover .infos button{
+background-color: #8c5bc7;
+
+    }
+    
+
+    /* .infos span {
       margin: 20px;
       font-weight: 500;
       font-size: x-large;
-    }
+    } */
   }
 }
 
@@ -771,71 +763,51 @@ align-items: center;
 /*************** FOOTER ***************/
 
 footer {
-/* display: flex; */
-background-color: grey;
-color: white;
-padding: 20px 40px;
-
+  background-color: grey;
+  color: white;
+  padding: 20px 40px;
 
   .infos_link {
-  display: flex;
-  justify-content: space-between; /* espace entre les blocs */
-  align-items: center;
-  position:relative;
-  height: 200px;
-
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    height: 200px;
 
     .link {
-    margin: auto;
-    display: flex;
-    text-align: center;
-    align-items: center;
-    flex-direction: column;
+      margin: auto;
+      display: flex;
+      text-align: center;
+      align-items: center;
+      flex-direction: column;
     }
-
 
     .footLogo img {
-    width: 120px;
-    height: auto;
+      width: 120px;
+      height: auto;
     }
 
-    .network a{
-    color: white;
-    margin: 5px;
-    text-decoration: none;
+    .network a {
+      color: white;
+      margin: 5px;
+      text-decoration: none;
     }
-
 
     .us a {
-    color: white;
-    margin: 5px;
+      color: white;
+      margin: 5px;
     }
   }
 
-  .map_adress{
-  display: flex;
-  text-align: right;
+  .map_adress {
+    display: flex;
+    text-align: right;
 
-
-    .map{
+    .map {
       padding: 10px;
     }
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-}
-
-
 
 /*************** END FOOTER ***************/
 
