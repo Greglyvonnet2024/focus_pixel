@@ -24,7 +24,7 @@ class BasketController extends AbstractController
         }
 
         foreach ($product as $p){
-            $total += $p->getPrix();
+            $total += $p->getPrixPromo();
         }
 
 
@@ -82,7 +82,7 @@ public function supp(Request $request, SessionInterface $sessionInterface){
         array_values($cart);
 
         foreach ($cart as $p){
-            $total += $p->getPrix();
+            $total += $p->getPrixPromo();
         }
 
         $sessionInterface->set('cart', $cart);

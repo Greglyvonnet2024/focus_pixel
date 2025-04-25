@@ -19,14 +19,18 @@ class HomeController extends AbstractController
 
         $promotions = $productSellRepository->findByPromotions();
 
+        // $favoris = [];
+        // if ($this->getUser()) {
+        //     $favoris = $this->getUser()->getFavorites()->map(fn($f) => $f->getProduct()->getId())->toArray();
+        // }
+
+
         return $this->render('home/index.html.twig', [
             'controller_name' => 'Accueil',
             'products'=> $items,
             'promotions' =>$promotions
         ]);
     }
-
-
 }
 
 

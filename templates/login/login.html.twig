@@ -3,28 +3,84 @@
 {% block title %}Connexion{% endblock %}
 
 {% block body %}
+<main class="contenair">
 
-  <main class="contenair">
-  
-  {% for message in app.flashes('error') %}
-    <div class="alert alert-danger">{{ message }}</div>
-  {% endfor %}
+  <div class="loginform">
 
-  {% for message in app.flashes('success') %}
-    <div class="alert alert-success">{{ message }}</div>
-  {% endfor %}
+    <div class="login">
 
-  <div class="login">
-    <h1>Connexion</h1>
+      <h1>Connexion</h1>
 
-    {{ form_start(form) }}
-      {{ form_row(form.email) }}
-      {{ form_row(form.password) }}
-      <button type="submit" class="sub">Se connecter</button>
-    {{ form_end(form) }}
+      {% if error %}
+        <div class="alert alert-danger">
+          {{ error.messageKey|trans(error.messageData, 'security') }}
+        </div>
+      {% endif %}
 
-    <p><a href="#">Mot de passe oublié ?</a></p>
-    <p>Pas encore inscrit ? <a href="{{ path('app_register') }}">Créer un compte</a></p>
+      <form method="post">
+        <label for="username">Email</label>
+        <input type="text" id="username" name="_username" value="{{ last_username }}" required autofocus>
+
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" name="_password" required>
+
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+        <button type="submit" class="sub">Connexion</button>
+      </form>
+
+      <p><a href="#">Mot de passe oublié ?</a></p>
+      <p>Pas encore inscrit ? <a href="{{ path('app_register') }}">Créer un compte</a></p>
+
+    </div>
   </div>
 </main>
 {% endblock %}
+
+
+
+
+{# {% extends 'base.html.twig' %}
+
+{% block title %}
+  Connexion
+{% endblock %}
+
+{% block body %}
+
+  <main class="contenair">
+
+    <div class="loginform">
+
+      {% for message in app.flashes('error') %}
+        <div class="alert alert-danger">{{ message }}</div>
+      {% endfor %}
+
+      {% for message in app.flashes('success') %}
+        <div class="alert alert-success">{{ message }}</div>
+      {% endfor %}
+
+      <div class="login">
+
+        <h1>Connexion</h1>
+
+        {{ form_start(form) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.password) }}
+
+        <button type="submit" class="sub">Se connecter</button>
+
+        {{ form_end(form) }}
+
+        <p>
+          <a href="#">Mot de passe oublié ?</a>
+        </p>
+
+        <p>
+          Pas encore inscrit ? <a href="{{ path('app_register') }}">Créer un compte</a>
+        </p>
+
+      </div>
+    </div>
+  </main>
+{% endblock %} #}

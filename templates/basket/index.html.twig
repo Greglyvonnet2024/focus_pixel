@@ -28,8 +28,14 @@
               <td classe="imgs">
                 <img src="{{ asset('assets/img/' ~ item.img) }}" alt="{{ item.nom }}" />
               </td>
-              <td classe="price">{{ item.prix }}</td>
-              {# <td>{{ total }}</td> #}
+              <td classe="price">
+                {% if item.promotions %}
+                  <del>{{ item.prix }} € </del> / <strong>{{ item.getPrixPromo() }} €</strong>
+                {% else %}
+                  {{ item.prix }} €
+                {% endif %}  
+              </td>
+            
               <td classe="trash">
                 <a href="#" class="btn btn-danger btn-sm supp" data-id="{{ item.id }}"><i class="fas fa-trash"></i></a>
               </td>
@@ -46,7 +52,7 @@
 
 <button class"commandValid"><a href="{{path("app_payment")}}">Valider</a></button>
 
-      {# <div class=""></div> #}
+
 
 
 

@@ -89,7 +89,7 @@ class ProductSell
     public function __construct()
     {
         $this->images = new ArrayCollection();
-        $this->users = new ArrayCollection();
+        // $this->users = new ArrayCollection();>>> fais erreur controler
         $this->favorites = new ArrayCollection();
     }
 
@@ -303,6 +303,15 @@ if ($promotions >0) {
     }
     return $this->prix;
 }
+
+    public function getPrixPromo(): float
+    {
+        if ($this->promotions !== null && $this->promotions > 0) {
+            return $this->prix - ($this->prix * $this->promotions / 100);
+        }
+
+        return $this->prix;
+    }
 
     /**
      * @return Collection<int, Favorite>

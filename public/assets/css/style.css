@@ -1,4 +1,4 @@
-/*************** GLOBAL ***************/
+/*************************** GLOBAL ***************************/
 
 * {
   margin: 0;
@@ -6,43 +6,47 @@
   vertical-align: baseline;
   box-sizing: border-box;
   font-family: Open sans-serif;
-
-  h1 {
-    text-transform: capitalize;
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 40px;
-    text-decoration: underline;
-  }
-
-  h2 {
-    text-transform: capitalize;
-    text-decoration: underline;
-    /* text-align: center; */
-  }
-
-  h3 {
-    text-align: center;
-    margin-bottom: 10px;
-  }
-
-  h4 {
-    text-decoration: underline;
-  }
-
-  h5 {
-    text-decoration: underline;
-  }
-
-  .contenair {
-    margin: 50px auto;
-    width: 1650px;
-  }
 }
 
-/*************** END GLOBAL ***************/
 
-/*************** HEADER + NAV***************/
+/*titre form et descritption */
+h1 {
+  text-transform: capitalize;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  text-decoration: underline;
+}
+
+
+/*titre page categories */
+h2 {
+  text-transform: capitalize;
+  text-decoration: underline;
+}
+
+
+/*titre arcticles dans description */
+h3 {
+  text-align: center;
+  margin-bottom: 10px;
+}  
+
+
+/*titre des articles par catégorie + titre div "map_adress" footer  */
+h4, h5{    
+  text-decoration: underline; 
+}
+
+.contenair {
+  margin: 50px auto;
+  width: 1650px;
+}
+
+
+/*************************** END GLOBAL *******************************/
+
+/*************************** HEADER + NAV *****************************/
 
 /* Conteneur global pour l'image */
 .hero {
@@ -51,8 +55,8 @@
   background-position: center;
   height: 70vh;
   position: relative;
-  /* justify-content: center; */
 }
+
 
 /* Conteneur pour le logo et la navigation */
 .logNav {
@@ -67,12 +71,10 @@
   z-index: 10;
 }
 
-/* Logo */
-.logo {
-  margin-right: 20px;
-}
 
-.logo img {
+/* Logo */
+.logo, .logo img {
+  margin-right: 20px;
   height: 150px;
 }
 
@@ -81,14 +83,11 @@ nav {
   display: flex;
   gap: 20px;
   flex-grow: 1;
-  /* justify-content: center;  */
 }
 
 ul {
   display: flex;
   list-style: none;
-  /* padding: 0;
-  margin: 0; */
 }
 
 nav a:hover {
@@ -142,12 +141,12 @@ nav a {
   margin-right: 10px;
 }
 
-/* Cacher le texte "Mon profil" par défaut */
+/* Cache "Mon profil"  */
 .myProfil .profil {
   display: none;
 }
 
-/* Afficher "Mon profil" lorsque la souris survole l'élément */
+/* Affiche "Mon profil" lorsque survole la souris  */
 .myProfil:hover .welcome {
   display: none;
 }
@@ -174,189 +173,254 @@ nav a {
   z-index: 2;
 }
 
-/*************** END HEADER + NAV ***************/
+/*************************** END HEADER + NAV ***************************/
 
-/*************** LOGIN ***************/
 
-/* .log {
-  height: 250px;
-  width: 300px;
-  border-radius: 10px 10px;
-  justify-content: space-between;
-} */
-
-/*************** END LOGIN ***************/
-
-/*************** MAIN HOME ***************/
+/*************************** MAIN HOME **********************************/
 
 /* Conteneur dédier aux produits récement ajouté */
 .recentlyAdd {
   justify-content: center; /*space evenly*/
   margin-top: 50px;
+}
 
-  .prodAdd {
+
+.prodAdd {
     width: 100%; /*ajout test*/
     justify-content: center; /*ajout test*/
     flex-wrap: wrap; /*ajout test*/
-
     margin-top: 40px 30px; /*sans 30px*/
     display: flex;
-
-    .product {
-      width: 350px;
-      height: 450px; /*anciennement 420px*/
-      /* margin: auto; */
-      margin: 40px 20px;
-      border: 1px solid black;
-      border-radius: 10px 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      transition: box-shadow 0.3s ease-in-out;
-    }
-
-    .product:hover {
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    }
-
-    .prodImg img {
-      display: flex;
-      width: 260px;
-      height: 200px;
-      margin: auto;
-      object-fit: contain;
-      justify-content: center;
-    }
-
-    .prodInfo {
-      margin: 20px;
-    }
-
-    #titleP {
-      height: 50px;
-      text-align: center;
-    }
-
-    .prodInfo span {
-      font-weight: 500;
-      font-size: x-large;
-    }
-
-    .new-price {
-      color: red;
-      font-weight: 700px;
-      padding-left: 20px;
-      font-size: xx-large;
-      /* text-trnsform: uppercase;  */
-    }
-
-    .old-price {
-      text-decoration: line-through;
-    }
-
-    .link {
-      margin: 20px auto;
-      display: flex;
-      justify-content: center;
-    }
-
-    .link button {
-      margin: auto;
-      width: 150px;
-      height: 35px;
-      border-radius: 10px 10px;
-      background-color: rgba(117, 48, 202, 0.992);
-      color: white;
-      font-weight: 700;
-    }
-
-    .link button a {
-      text-decoration: none;
-      color: white;
-    }
-  }
-  /* Conteneur dédier aux promo récement ajouté
-  .promAdd{
-    margin-top: 40px;
-    display: flex;} */
 }
 
-/*************** END MAIN HOME***************/
 
-/*************** FORMULAIRES ***************/
+.product {
+  width: 350px;
+  height: 450px; /*anciennement 420px*/
+  /* margin: auto; */
+  margin: 40px 20px;
+  border: 1px solid black;
+  border-radius: 10px 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease-in-out;
+}
 
-/* Formulaire d'inscription */
 
-.registerform {
+.product:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+.prodImg img {
+  display: flex;
+  width: 260px;
+  height: 200px;
+  margin: auto;
+  object-fit: contain;
+  justify-content: center;
+}
+
+
+.prodInfo {
+  margin: 20px;
+}
+
+
+#titleP {
+  height: 50px;
+  text-align: center;
+}
+
+
+.prodInfo span {
+  font-weight: 500;
+  font-size: x-large;
+}
+
+
+.new-price {
+  color: red;
+  font-weight: 700px;
+  padding-left: 20px;
+  font-size: xx-large;
+}
+
+
+.old-price {
+  text-decoration: line-through;
+}
+
+
+.link {
+  margin: 20px auto;
   display: flex;
   justify-content: center;
 }
 
+
+.link button {
+  margin: auto;
+  width: 150px;
+  height: 35px;
+  border-radius: 10px 10px;
+  background-color: rgba(117, 48, 202, 0.992);
+  color: white;
+  font-weight: 700;
+}
+
+
+  .link button a {
+    text-decoration: none;
+    color: white;
+  }
+
+
+/*************************** END MAIN HOME ***************************/
+
+/*************************** FORMULAIRES *****************************/
+
+/*************** REGISTER ***************/
+
+.registerform {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+} /*OK*/
+
 .register {
   background-color: rgb(192, 187, 187);
   height: 600px;
-  padding: 20px;
-  width: 550px;
+  padding: 30px;
+  width: 100%;
+  max-width: 500px;
   border-radius: 20px;
-  display: grid;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
+.register form {
+  width: 100%;
+  max-width: 300px; 
+}
+
 .register label {
-  /* padding-right: 30px; */
-  justify-content: space-between;
   display: block;
-  align-items: center;
+  font-weight: 500;
   margin-bottom: 6px;
 }
 
 .register input {
+  width: 100%;
+  padding: 10px;
   border-radius: 5px;
-  padding: 5px;
-  margin-bottom: 10px;
+  border: 1px solid black;
+  box-sizing: border-box;
+  margin-bottom: 5px;
 }
 
 .registerform form > div {
   margin-bottom: 20px;
+  width: 100%;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkbox label {
+  display: inline-block; 
+  white-space: nowrap;/*empeche le retour a la ligne du label */
+}
+
+.register p {
+  margin-top: 25px;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+/*************** END REGISTER ***************/
+
+/*************** LOGIN ***************/
+
+.loginform {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.login {
+  background-color: rgb(192, 187, 187);
+  padding: 30px;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login form {
+  width: 100%;
+  max-width: 300px; 
+}
+
+.login form > div {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+/* Labels */
+.login label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.login input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid black;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+}
+
+.login p {
+  margin-top: 25px;
+  font-size: 0.95rem;
+  text-align: center;
 }
 
 .sub {
-  width: 200px;
+  margin: auto;
+  width: 150px;
   height: 40px;
+  display: flex;
+  align-items:center;
+  justify-content: center;
   border-radius: 10px;
   background-color: rgba(117, 48, 202, 0.992);
   color: white;
   font-weight: 700;
-  font-size: medium;
-  align-items: center;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.3s ease;
+}
+
+.sub:hover {
+  background-color: rgba(146, 103, 198, 0.992);
 }
 
 
-/* Formulaire de connexion */
+/*************** END LOGIN ***************/
 
-.login {
-  height: 500px;
-  width: 450px;
-  margin: auto;
-  border: 1px black;
-  border-radius: 10px 10px;
-  background-color: rgb(192, 187, 187);
+/*************** PRODUCTSELL ***************/
 
-  .sub {
-    margin: auto;
-    width: 150px;
-    height: 35px;
-    border-radius: 10px 10px;
-    background-color: rgba(117, 48, 202, 0.992);
-    color: white;
-    font-weight: 700;
-  }
-
-  .login form label {
-    padding-left: 20px;
-  }
-}
-
-/* Formulaire de vente */
 
 .formSell {
   height: 500px;
@@ -391,6 +455,19 @@ nav a {
     font-weight: 700;
   }
 }
+
+
+/*************** END PRODUCTSELL ***************/
+
+
+/*************** PAYMENT ***************/
+
+
+
+/*************** END PAYMENT ***************/
+
+
+
 
 /* formulaire paiement */
 
@@ -661,7 +738,7 @@ nav a {
       padding: 10px 20px; */
 
 
- display: block;
+  display: block;
   margin: 20px auto 0 auto; /* centre le bouton et ajoute de l'espace */
   padding: 10px 20px;
   background-color: #7530ca;
@@ -675,7 +752,6 @@ nav a {
     }
     :hover .infos button{
 background-color: #8c5bc7;
-
     }
     
 

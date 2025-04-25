@@ -25,11 +25,14 @@
                 Condition physique: <b>{{ item.etat }}</b>
               </p>
               <span>{{ item.prix }}€</span>
+              
             </div>
 
             <div class="link">
               <button><a href="{{ path('app_description', { id: item.id }) }}">En savoir plus</a></button>
               <button class="addBasket" data-bouton="page-prod" data-id="{{ item.id }}">Ajouter au panier</button>
+
+
             </div>
           </div>
         {% endfor %}
