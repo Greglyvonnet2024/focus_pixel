@@ -334,7 +334,6 @@ if ($promotions >0) {
     public function removeFavorite(Favorite $favorite): static
     {
         if ($this->favorites->removeElement($favorite)) {
-            // set the owning side to null (unless already changed)
             if ($favorite->getProduct() === $this) {
                 $favorite->setProduct(null);
             }

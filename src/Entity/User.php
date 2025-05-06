@@ -72,13 +72,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private Collection $favorites;
 
 
-// ***** ici rajout 
+    // ***** ici rajout 
 
     #[ORM\ManyToMany(targetEntity: ProductSell::class, inversedBy: 'users')]
     #[ORM\JoinTable(name: 'user_favorites')]
     private Collection $favoris;
 
-// *****fin rajout 
+    // *****fin rajout 
 
 
     public function __construct()
@@ -124,7 +124,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getRoles(): array
     {
         $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
         $roles[] = 'ROLE_USER';
 
         return array_unique($roles);
@@ -335,5 +334,4 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
-
 }

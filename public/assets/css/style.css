@@ -57,6 +57,13 @@ h4, h5{
   position: relative;
 }
 
+.burger{
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1000;
+}
 
 /* Conteneur pour le logo et la navigation */
 .logNav {
@@ -71,6 +78,16 @@ h4, h5{
   z-index: 10;
 }
 
+.retract{
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.retract ul {
+  display: flex;
+  gap: 20px;
+}
 
 /* Logo */
 .logo, .logo img {
@@ -889,29 +906,137 @@ footer {
 
 /*************** MEDIAQUERY ***************/
 
-/* @media (max-width: 1400px) {
-  header {
-    background-color: #e68f15;
+/* === Téléphones : 480px à 720px === */
+@media (min-width: 480px) and (max-width: 720px) {
+  body {
+    overflow-x: hidden;
   }
-  header h2 {
-    font-size: 14px;
+
+  .contenair {
+    padding: 10px;
+    width: 100%;
+  }
+
+  .product {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .prodImg img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .link {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .register, .login, .formSell {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .register input,
+  .login input {
+    width: 100%;
+  }
+
+  .sub, .link button {
+    width: 100%;
+  }
+
+  .alldetails {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .descript {
+    width: 100%;
+    padding: 10px;
+  }
+
+  footer .infos_link,
+  footer .map_adress {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+  }
+
+  nav,
+  .logNav {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  h1, h2 {
+    font-size: 1.3rem;
+    text-align: center;
   }
 }
 
-@media (max-width: 960px) {
-  header {
-    background-color: #a6f28b;
+
+/* === Tablette paysage : 900px à 1024px === */
+@media (min-width: 900px) and (max-width: 1024px) {
+  .contenair {
+    width: 95%;
+    margin: auto;
   }
-  .logo1 {
-    display: none;
+
+  .prodAdd,
+  .promoAdd {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
   }
-  .logo2 {
-    display: inline;
+
+  .product {
+    width: calc(33.33% - 20px);
+    min-width: 250px;
+    margin-bottom: 30px;
   }
-  header h2 {
-    font-family: "Roboto-Black";
+
+  .prodImg img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
   }
-} 
+
+  .alldetails {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .descript {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .register, .login, .formSell {
+    width: 95%;
+    margin: auto;
+  }
+
+  footer .infos_link,
+  footer .map_adress {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h1, h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}
+
 
 /*************** END MEDIAQUERY ***************/
 

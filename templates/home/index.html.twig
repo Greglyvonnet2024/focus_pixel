@@ -3,36 +3,30 @@
 {% block body %}
   <main class="contenair">
     {# Mon image d'entête #}
-    {# <div class="hero"></div> #}
 
     {# Mon bloc DIV concernant mes produits récemment ajoutés #}
     <div class="recentlyAdd">
       <h2>Produits récemment ajoutés :</h2>
 
-      {# prodAdd est anciennement "productAdd" #}
+      {# Div produit ajouté récemment" #}
       <div class="prodAdd">
         {% for item in products %}
           <div class="product">
-            {# prodImg est anciennement "productImg" #}
             <div class="prodImg">
               <img src="{{ asset('/assets/img/' ~ item.img) }}" alt="{{ item.nom }}" />
             </div>
 
-            {# prodInfo est anciennement "productInfo" #}
             <div class="prodInfo">
               <h4 id="titleP">{{ item.marque }}, {{ item.nom }}</h4>
               <p>
                 Condition physique: <b>{{ item.etat }}</b>
               </p>
               <span>{{ item.prix }}€</span>
-              
             </div>
 
             <div class="link">
               <button><a href="{{ path('app_description', { id: item.id }) }}">En savoir plus</a></button>
               <button class="addBasket" data-bouton="page-prod" data-id="{{ item.id }}">Ajouter au panier</button>
-
-
             </div>
           </div>
         {% endfor %}
@@ -42,15 +36,14 @@
     <div class="recentlyAdd">
       <h2>Produits en promotions :</h2>
 
+      {# Div produit ajouté récemment en promotion" #}
       <div class="prodAdd">
         {% for item in promotions %}
           <div class="product">
-            {# prodImg est anciennement "productImg" #}
             <div class="prodImg">
               <img src="{{ asset('/assets/img/' ~ item.img) }}" alt="{{ item.nom }}" />
             </div>
 
-            {# prodInfo est anciennement "productInfo" #}
             <div class="prodInfo">
               <h4 id="titleP">{{ item.marque }} {{ item.nom }}</h4>
               <p>

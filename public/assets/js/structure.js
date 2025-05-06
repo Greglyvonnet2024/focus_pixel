@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+  /* ajout roduit panier*/ 
   const BOUTONS = document.querySelectorAll(".addBasket");
 
   BOUTONS.forEach(function (bouton) {
@@ -10,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ id: ID }), // $data = ['id' => 5]; dans le contrôleur
+        body: JSON.stringify({ id: ID }), 
       })
         .then((result) => {
           return result.json();
@@ -29,8 +31,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+/* suprimer un prodit au panier*/
   const SUPP = document.querySelectorAll(".supp");
-  console.log(SUPP);
+  
 
   SUPP.forEach(function (supp) {
     supp.addEventListener("click", function (event) {
@@ -61,8 +64,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+
+  /*ajouter produit en favoris */
   document.querySelectorAll(".fav").forEach((button) => {
-    console.log("coucou");
+
     button.addEventListener("click", function () {
       let productId = this.dataset.id;
       let icon = this.querySelector("i");
@@ -87,4 +92,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
   });
+
+  const burger = document.querySelector(".burger");
+  const nav = document.querySelector(".retractable");
+
+  if (burger && nav) {
+    burger.addEventListener("click", () => {
+      nav.classList.toggle("active");
+    });
+  }
+
 });

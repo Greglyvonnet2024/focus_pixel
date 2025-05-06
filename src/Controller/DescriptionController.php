@@ -7,7 +7,6 @@ use App\Repository\ProductSellRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-
 class DescriptionController extends AbstractController
 {
     #[Route('/description/{id}', name: 'app_description')]

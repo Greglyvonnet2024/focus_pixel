@@ -1,107 +1,97 @@
 <header>
-
   {# Ma DIV contenant mon image d'entête #}
   <div class="hero">
-
     <div class="logNav">
-
       {# Conteneur Logo et Navigation #}
       <div class="logo">
-        <a href="{{ path('app_home') }}">
-          <img src="{{ asset('assets/img/logo2.png') }}" alt="le nom du site et logo représentant un réticule" />
-        </a>
+        <a href="{{ path('app_home') }}"><img src="{{ asset('assets/img/logo2.png') }}" alt="le nom du site et logo représentant un réticule" /></a>
       </div>
-        {#Navigation#}
-        <nav>
 
-          <div class="item">
+      <div class="burger">
+        <i class="fa-solid fa-bars fa-sm"></i>
+      </div>
+      {# Navigation #}
+      <nav class="retractable">
+        <div class="item">
+          <ul>
+            <li>
+              <a href="{{ path('app_home') }}"><i class="fa-solid fa-house fa-xl"></i></a>
+            </li>
 
-            <ul>
+            <li>
+              <a href="{{ path('app_product', { category: 'boitiers' }) }}">Boitiers</a>
+            </li>
 
+            <li>
+              <a href="{{ path('app_product', { category: 'optiques' }) }}">Optiques</a>
+            </li>
+
+            <li>
+              <a href="{{ path('app_product', { category: 'flashs' }) }}">Flashs</a>
+            </li>
+
+            <li>
+              <a href="{{ path('app_product', { category: 'accessoires' }) }}">Accessoires</a>
+            </li>
+
+            <li>
+              <a href="{{ path('app_promotions', { category: 'promotions' }) }}">Promotions</a>
+            </li>
+
+            <li>
+              <a href="{{ path('app_productbuy') }}">Vendez votre matériel</a>
+            </li>
+          </ul>
+        </div>
+
+        {# Compte utilisateur #}
+        <div class="account">
+          <ul>
+            {% if app.user and not is_granted('ROLE_ADMIN') %}
               <li>
-                <a href="{{ path('app_home') }}"><i class="fa-solid fa-house fa-xl"></i></a>
-              </li>
-
-              <li>
-                <a href="{{ path('app_product', { category: 'boitiers' }) }}">Boitiers</a>
-              </li>
-
-              <li>
-                <a href="{{ path('app_product', { category: 'optiques' }) }}">Optiques</a>
-              </li>
-
-              <li>
-                <a href="{{ path('app_product', { category: 'flashs' }) }}">Flashs</a>
-              </li>
-
-              <li>
-                <a href="{{ path('app_product', { category: 'accessoires' }) }}">Accessoires</a>
-              </li>
-
-              <li>
-                <a href="{{ path('app_promotions', { category: 'promotions' }) }}">Promotions</a>
-              </li>
-
-              <li>
-                <a href="{{ path('app_productbuy') }}">Vendez votre matériel</a>
-              </li>
-
-            </ul>
-
-          </div>
-
-          {# Compte utilisateur#}
-          <div class="account">
-            <ul>
-              {% if app.user and not is_granted('ROLE_ADMIN') %}
-
-                <li>
-                  <a href="{{path('app_profil')}}" class="myProfil">
+                <a href="{{ path('app_profil') }}" class="myProfil">
                   <i class="fa-solid fa-user fa-xs"></i>
-                  <span class="welcome">(Bonjour {{app.user.prenom}}) !!</span>
+                  <span class="welcome">(Bonjour {{ app.user.prenom }}) !!</span>
                   <span class="profil">Mon profil</span>
                 </a>
-                </li>
+              </li>
 
-                <li>
-                  <a href="{{ path('app_logout') }}">Déconnexion</a>
-                </li>
+              <li>
+                <a href="{{ path('app_logout') }}">Déconnexion</a>
+              </li>
+            {% elseif is_granted('ROLE_ADMIN') %}
+              <li>
+                <a href="{{ path('admin') }}" class="btn btn-primary"><i class="fa-solid fa-crown fa-xs"></i>Accéder au Tableau de bord</a>
+              </li>
+              <li>
+                <a href="{{ path('app_logout') }}">Déconnexion</a>
+              </li>
+            {% else %}
+              <li>
+                <a href="{{ path('app_register') }}">Inscription</a>
+              </li>
 
-              {% elseif is_granted('ROLE_ADMIN') %}
-                <li>
-                <a href="{{ path('admin') }}" class="btn btn-primary"><i class="fa-solid fa-crown fa-xs"></i>Accéder au Tableau de bord</a></li>
-                <li>
-                  <a href="{{ path('app_logout') }}">Déconnexion</a>
-                </li>
+              <li>
+                <a href="{{ path('app_login') }}">Connexion</a>
+              </li>
+            {% endif %}
 
-              {% else %}
-                <li>
-                  <a href="{{ path('app_register') }}">Inscription</a>
-                </li>
-
-                <li>
-                  <a href="{{ path('app_login') }}">Connexion</a>
-                </li>
-              {% endif %}
-
-                <li>
-                  <a href="{{ path('app_basket') }}">
-                    <i class="fa-solid fa-cart-shopping fa-xl"></i>
-                      <span id="cart_nb">{{ app.session.get('numb_item') > 0 ? app.session.get('numb_item') : '' }}</span>
-                  </a>
-                </li>
-            </ul>
-          </div>
-        </nav>
-      
+            <li>
+              <a href="{{ path('app_basket') }}">
+                <i class="fa-solid fa-cart-shopping fa-xl"></i>
+                <span id="cart_nb">{{ app.session.get('numb_item') > 0 ? app.session.get('numb_item') : '' }}</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </div>
   </div>
   {% for label, messages in app.flashes %}
     <div class="flash flash-{{ label }}">
-        {% for message in messages %}
-            <p>{{ message }}</p>
-        {% endfor %}
+      {% for message in messages %}
+        <p>{{ message }}</p>
+      {% endfor %}
     </div>
   {% endfor %}
-
 </header>

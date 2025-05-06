@@ -15,7 +15,7 @@
             <th>Produits</th>
             <th>Image</th>
             <th>Prix</th>
-            {# <th>Total</th> #}
+
             <th>Action</th>
           </tr>
         </thead>
@@ -41,20 +41,13 @@
               </td>
             </tr>
           
-            
-            
           {% endfor %}
   
-
         </tbody>
       </table>
 <div><h4>Le total des articles est de:</h4><span id='totalPanier'>{{ total }}</span> €</div>
 
 <button class"commandValid"><a href="{{path("app_payment")}}">Valider</a></button>
-
-
-
-
 
     </div>
   </main>
